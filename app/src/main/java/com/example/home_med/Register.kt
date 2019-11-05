@@ -23,6 +23,9 @@ class Register : Fragment() {
         binding.createAccountButton.setOnClickListener { v: View ->
             v.findNavController().navigate(RegisterDirections.actionRegisterToHome2())
         }
+        binding.alreadyHaveAccountButton.setOnClickListener { v: View ->
+            v.findNavController().navigate(RegisterDirections.actionRegisterToLogin())
+        }
 
         return inflater.inflate(R.layout.fragment_register, container, false)
     }

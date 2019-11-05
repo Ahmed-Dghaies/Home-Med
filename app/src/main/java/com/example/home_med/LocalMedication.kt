@@ -26,6 +26,9 @@ class LocalMedication : Fragment() {
         binding.addMedicationButton.setOnClickListener { v: View ->
             v.findNavController().navigate(LocalMedicationDirections.actionLocalMedicationToAddMedication())
         }
+        binding.homeButton.setOnClickListener { v: View ->
+            v.findNavController().navigate(LocalMedicationDirections.actionLocalMedicationToHome2())
+        }
         return inflater.inflate(R.layout.fragment_local_medication, container, false)
     }
 

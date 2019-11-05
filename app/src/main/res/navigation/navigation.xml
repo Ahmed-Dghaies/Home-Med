@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_register_to_home2"
             app:destination="@id/home2" />
+        <action
+            android:id="@+id/action_register_to_login"
+            app:destination="@id/login" />
     </fragment>
     <fragment
         android:id="@+id/home2"
@@ -46,6 +49,9 @@
         <action
             android:id="@+id/action_localMedication_to_viewMedication"
             app:destination="@id/viewMedication" />
+        <action
+            android:id="@+id/action_localMedication_to_home2"
+            app:destination="@id/home2" />
     </fragment>
     <fragment
         android:id="@+id/addMedication"
