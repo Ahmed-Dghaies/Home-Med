@@ -51,10 +51,18 @@
         android:id="@+id/addMedication"
         android:name="com.example.home_med.AddMedication"
         android:label="fragment_add_medication"
-        tools:layout="@layout/fragment_add_medication" />
+        tools:layout="@layout/fragment_add_medication" >
+        <action
+            android:id="@+id/action_addMedication_to_localMedication"
+            app:destination="@id/localMedication" />
+    </fragment>
     <fragment
         android:id="@+id/viewMedication"
         android:name="com.example.home_med.ViewMedication"
         android:label="fragment_view_medication"
-        tools:layout="@layout/fragment_view_medication" />
+        tools:layout="@layout/fragment_view_medication" >
+        <action
+            android:id="@+id/action_viewMedication_to_localMedication"
+            app:destination="@id/localMedication" />
+    </fragment>
 </navigation>
