@@ -27,6 +27,4 @@ class AddMedication : Fragment() {
         }
         return inflater.inflate(R.layout.fragment_add_medication, container, false)
     }
-
-
 }
