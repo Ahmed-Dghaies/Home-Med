@@ -23,7 +23,8 @@ class Home : Fragment() {
         binding.localMedicationsButton.setOnClickListener { v: View ->
             v.findNavController().navigate(HomeDirections.actionHome2ToLocalMedication())
         }
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        setHasOptionsMenu(true)
+        return binding.root
     }
 
 

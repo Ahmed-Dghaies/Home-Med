@@ -23,7 +23,8 @@ class Login : Fragment() {
             v.findNavController().navigate(LoginDirections.actionLoginToRegister())
         }
 
-        return inflater.inflate(R.layout.fragment_login, container, false)
+        setHasOptionsMenu(true)
+        return binding.root
     }
 
 }

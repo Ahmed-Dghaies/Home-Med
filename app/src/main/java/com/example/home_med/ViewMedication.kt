@@ -26,6 +26,7 @@ class ViewMedication : Fragment() {
             v.findNavController().navigate(ViewMedicationDirections.actionViewMedicationToLocalMedication())
         }
 
-        return inflater.inflate(R.layout.fragment_view_medication, container, false)
+        setHasOptionsMenu(true)
+        return binding.root
     }
 }

@@ -27,7 +27,8 @@ class Register : Fragment() {
             v.findNavController().navigate(RegisterDirections.actionRegisterToLogin())
         }
 
-        return inflater.inflate(R.layout.fragment_register, container, false)
+        setHasOptionsMenu(true)
+        return binding.root
     }
 
 

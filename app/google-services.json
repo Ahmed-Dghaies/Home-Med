@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "952909603535",
+    "firebase_url": "https://home-med.firebaseio.com",
+    "project_id": "home-med",
+    "storage_bucket": "home-med.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:952909603535:android:47b4eee655db53055f8dba",
+        "android_client_info": {
+          "package_name": "com.example.home_med"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "952909603535-br7u339mcuuhf9av869nlnr2se6505cv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.home_med",
+            "certificate_hash": "dff10057b262d0b59f61b8403f1c8b4253723977"
+          }
+        },
+        {
+          "client_id": "952909603535-5pnf9p2qqgqlhd3glul0f0sgsodheo6h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSMiOUN2ZWq0w_ORvTNAmT00TvNVxv43c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "952909603535-5pnf9p2qqgqlhd3glul0f0sgsodheo6h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
