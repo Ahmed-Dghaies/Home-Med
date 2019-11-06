@@ -22,35 +22,75 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.449" />
+            app:layout_constraintVertical_bias="0.058" />
 
         <Button
             android:id="@+id/deleteMedicationButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="49dp"
-            android:layout_marginTop="139dp"
             android:layout_marginEnd="101dp"
-            android:layout_marginBottom="185dp"
+            android:layout_marginBottom="68dp"
             android:text="Delete"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/saveMedicationButton"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintStart_toEndOf="@+id/saveMedicationButton" />
 
         <Button
             android:id="@+id/saveMedicationButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="85dp"
-            android:layout_marginTop="146dp"
             android:layout_marginEnd="49dp"
-            android:layout_marginBottom="178dp"
+            android:layout_marginBottom="68dp"
             android:text="Save"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/deleteMedicationButton"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/medicationName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="59dp"
+            android:layout_marginTop="86dp"
+            android:layout_marginEnd="324dp"
+            android:ems="10"
+            android:hint="Medication Name"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <EditText
+            android:id="@+id/medicationQty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="59dp"
+            android:layout_marginTop="58dp"
+            android:layout_marginEnd="324dp"
+            android:ems="10"
+            android:hint="Quantity"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/medicationName" />
+
+        <EditText
+            android:id="@+id/expDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="59dp"
+            android:layout_marginTop="61dp"
+            android:layout_marginEnd="324dp"
+            android:ems="10"
+            android:hint="Expiration Date"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/medicationQty" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

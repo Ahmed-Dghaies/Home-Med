@@ -14,6 +14,7 @@ import com.example.home_med.databinding.FragmentAddMedicationBinding
 import com.example.home_med.databinding.FragmentHomeBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.fragment_add_medication.*
 import java.util.*
 
 
@@ -36,7 +37,7 @@ class AddMedication : Fragment() {
         val binding: FragmentAddMedicationBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_add_medication, container, false)
 
         binding.saveMedicationButton.setOnClickListener { v: View ->
-            addMedicine("Test", 5, "11/20/2019")
+            addMedicine(medicationName.toString(), medicationQty.toString().toInt(), expDate.toString())
             v.findNavController().navigate(AddMedicationDirections.actionAddMedicationToLocalMedication())
         }
         binding.deleteMedicationButton.setOnClickListener { v: View ->
