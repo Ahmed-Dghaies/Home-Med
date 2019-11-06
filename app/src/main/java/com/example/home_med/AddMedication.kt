@@ -37,7 +37,7 @@ class AddMedication : Fragment() {
         val binding: FragmentAddMedicationBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_add_medication, container, false)
 
         binding.saveMedicationButton.setOnClickListener { v: View ->
-            addMedicine(medicationName.toString(), medicationQty.toString().toInt(), expDate.toString())
+            addMedicine(medicationName.text.toString(), medicationQty.text.toString().toInt(), expDate.text.toString())
             v.findNavController().navigate(AddMedicationDirections.actionAddMedicationToLocalMedication())
         }
         binding.deleteMedicationButton.setOnClickListener { v: View ->
