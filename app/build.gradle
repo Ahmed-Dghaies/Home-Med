@@ -53,8 +53,5 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:truth:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     androidTestImplementation 'com.android.support.test:rules:1.0.2'
-    debugImplementation('androidx.fragment:fragment-testing:1.1.0') {
-        // exclude androidx.test:core while fragment_testing depends on 1.1.0
-        exclude group: 'androidx.test', module: 'core'
-    }
+    implementation 'com.google.firebase:firebase-auth:19.1.0'
 }

@@ -23,6 +23,9 @@ class Home : Fragment() {
         binding.localMedicationsButton.setOnClickListener { v: View ->
             v.findNavController().navigate(HomeDirections.actionHome2ToLocalMedication())
         }
+        binding.profileButton.setOnClickListener { v: View ->
+            v.findNavController().navigate(HomeDirections.actionHome2ToProfileFragment())
+        }
         setHasOptionsMenu(true)
         return binding.root
     }

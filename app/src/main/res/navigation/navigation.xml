@@ -9,7 +9,7 @@
         android:id="@+id/login"
         android:name="com.example.home_med.Login"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_login_to_register"
             app:destination="@id/register" />
@@ -38,6 +38,9 @@
         <action
             android:id="@+id/action_home2_to_localMedication"
             app:destination="@id/localMedication" />
+        <action
+            android:id="@+id/action_home2_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/localMedication"
@@ -71,5 +74,17 @@
         <action
             android:id="@+id/action_viewMedication_to_localMedication"
             app:destination="@id/localMedication" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.home_med.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profileFragment_to_home2"
+            app:destination="@id/home2" />
+        <action
+            android:id="@+id/action_profileFragment_to_login"
+            app:destination="@id/login" />
     </fragment>
 </navigation>
