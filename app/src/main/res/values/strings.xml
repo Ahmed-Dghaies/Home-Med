@@ -3,4 +3,16 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="login">Login</string>
+    <string name="email_hint">Enter your email address</string>
+    <string name="password_hint">Enter your password</string>
+    <string name="login_page_text">Don\'t have an account? Sign up!</string>
+    <string name="password_confirmation">Confirm your password</string>
+    <string name="register_page_text">You have and account? Login!</string>
+    <string name="profile">Profile</string>
+    <string name="go_home">Go home</string>
+    <string name="profile_info">Profile info</string>
+    <string name="logout">Logout</string>
+    <string name="email">Email:</string>
 </resources>
