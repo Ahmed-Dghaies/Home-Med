@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/login">
+
+    <fragment
+        android:id="@+id/login"
+        android:name="com.example.home_med.Login"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_login_to_register"
+            app:destination="@id/register" />
+        <action
+            android:id="@+id/action_login_to_home2"
+            app:destination="@id/home2"
+            app:launchSingleTop="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/register"
+        android:name="com.example.home_med.Register"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_register_to_home2"
+            app:destination="@id/home2" />
+        <action
+            android:id="@+id/action_register_to_login"
+            app:destination="@id/login" />
+    </fragment>
+    <fragment
+        android:id="@+id/home2"
+        android:name="com.example.home_med.Home"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home2_to_localMedication"
+            app:destination="@id/localMedication" />
+        <action
+            android:id="@+id/action_home2_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/localMedication"
+        android:name="com.example.home_med.LocalMedication"
+        android:label="fragment_local_medication"
+        tools:layout="@layout/fragment_local_medication" >
+        <action
+            android:id="@+id/action_localMedication_to_addMedication"
+            app:destination="@id/addMedication" />
+        <action
+            android:id="@+id/action_localMedication_to_viewMedication"
+            app:destination="@id/viewMedication" />
+        <action
+            android:id="@+id/action_localMedication_to_home2"
+            app:destination="@id/home2" />
+    </fragment>
+    <fragment
+        android:id="@+id/addMedication"
+        android:name="com.example.home_med.AddMedication"
+        android:label="fragment_add_medication"
+        tools:layout="@layout/fragment_add_medication" >
+        <action
+            android:id="@+id/action_addMedication_to_localMedication"
+            app:destination="@id/localMedication" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewMedication"
+        android:name="com.example.home_med.ViewMedication"
+        android:label="fragment_view_medication"
+        tools:layout="@layout/fragment_view_medication" >
+        <action
+            android:id="@+id/action_viewMedication_to_localMedication"
+            app:destination="@id/localMedication" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.home_med.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profileFragment_to_home2"
+            app:destination="@id/home2" />
+        <action
+            android:id="@+id/action_profileFragment_to_login"
+            app:destination="@id/login" />
+    </fragment>
+</navigation>
