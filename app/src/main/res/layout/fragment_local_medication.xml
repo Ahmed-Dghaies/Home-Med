@@ -39,16 +39,6 @@
             tools:listitem="@layout/recyclerview_item" />
 
         <Button
-            android:id="@+id/viewMedicationButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="100dp"
-            android:layout_marginBottom="100dp"
-            android:text="View Med"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <Button
             android:id="@+id/addMedicationButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -62,13 +52,11 @@
             android:id="@+id/homeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="120dp"
             android:layout_marginTop="59dp"
-            android:layout_marginEnd="30dp"
             android:layout_marginBottom="103dp"
             android:text="Home"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/viewMedicationButton"
             app:layout_constraintStart_toEndOf="@+id/addMedicationButton"
             app:layout_constraintTop_toBottomOf="@+id/addMedicationButton"
             app:layout_constraintVertical_bias="0.972" />

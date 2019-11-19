@@ -74,6 +74,9 @@
         <action
             android:id="@+id/action_viewMedication_to_localMedication"
             app:destination="@id/localMedication" />
+        <argument
+            android:name="medicationName"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"

@@ -63,6 +63,9 @@ class LocalMedication : Fragment() {
                 holder.medicationName.text = note.m_medicationName
                 holder.medicationType.text = note.m_medicationType
                 holder.medicationQty.text = note.m_medicationQty
+                holder.viewMedicationButton.setOnClickListener { v: View ->
+                    v.findNavController().navigate(LocalMedicationDirections.actionLocalMedicationToViewMedication(note.m_medicationName.toString()))
+                }
             }
 
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): medicationViewHolder {
@@ -106,9 +109,9 @@ class LocalMedication : Fragment() {
                 recyclerview?.adapter = medAdapter
             })
 
-        binding.viewMedicationButton.setOnClickListener { v: View ->
-            v.findNavController().navigate(LocalMedicationDirections.actionLocalMedicationToViewMedication())
-        }
+//        binding.viewMedicationButton.setOnClickListener { v: View ->
+//            v.findNavController().navigate(LocalMedicationDirections.actionLocalMedicationToViewMedication())
+//        }
         binding.addMedicationButton.setOnClickListener { v: View ->
             v.findNavController().navigate(LocalMedicationDirections.actionLocalMedicationToAddMedication())
         }

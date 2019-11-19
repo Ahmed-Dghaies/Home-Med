@@ -9,6 +9,51 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/vm_medicationExpDateTitle"
+            android:layout_width="229dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="19dp"
+            android:layout_marginEnd="287dp"
+            android:layout_marginBottom="552dp"
+            android:text="Medication Expiration Date = "
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vm_medicationQtyTitle" />
+
+        <TextView
+            android:id="@+id/vm_medicationQtyTitle"
+            android:layout_width="229dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="287dp"
+            android:layout_marginBottom="624dp"
+            android:text="Medication Quantity = "
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vm_medicationTypeTitle" />
+
+        <TextView
+            android:id="@+id/vm_medicationTypeTitle"
+            android:layout_width="229dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="287dp"
+            android:layout_marginBottom="692dp"
+            android:text="Medication Type = "
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vm_medicationNameTitle" />
+
+        <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -53,6 +98,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
             app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/vm_medicationNameTitle"
+            android:layout_width="229dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="68dp"
+            android:layout_marginEnd="287dp"
+            android:layout_marginBottom="760dp"
+            android:text="Medication Name = "
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
