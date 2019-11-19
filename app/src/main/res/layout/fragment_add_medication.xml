@@ -15,16 +15,14 @@
 
                 <EditText
                     android:id="@+id/medicationExpDate"
-                    android:layout_width="218dp"
-                    android:layout_height="44dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="59dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="324dp"
-                    android:layout_marginBottom="43dp"
                     android:ems="10"
                     android:hint="Expiration Date"
                     android:inputType="textPersonName"
-                    app:layout_constraintBottom_toTopOf="@+id/radioGroup"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/medicationType" />
@@ -50,15 +48,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="263dp"
-                    android:layout_marginTop="100dp"
+                    android:layout_marginTop="400dp"
                     android:layout_marginEnd="250dp"
                     android:layout_marginBottom="250dp"
                     android:text="Save"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+                    app:layout_constraintTop_toBottomOf="@+id/medicationQty"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <EditText
@@ -82,7 +80,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="59dp"
-                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="324dp"
                     android:layout_marginBottom="58dp"
                     android:ems="10"
@@ -105,30 +102,20 @@
                     android:inputType="textPersonName"
                     app:layout_constraintBottom_toTopOf="@+id/medicationExpDate"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/medicationQty" />
 
-                <RadioGroup
-                    android:id="@+id/radioGroup"
-                    android:layout_width="292dp"
-                    android:layout_height="79dp"
+                <RadioButton
+                    android:id="@+id/activeButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="59dp"
-                    android:layout_marginTop="28dp"
+                    android:layout_marginTop="41dp"
+                    android:text="Currently Taking?"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/medicationExpDate">
+                    app:layout_constraintTop_toBottomOf="@+id/medicationExpDate" />
 
-                    <RadioButton
-                        android:id="@+id/activeButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Currently Taking?" />
-
-                    <RadioButton
-                        android:id="@+id/inactiveButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Not Currently Taking?" />
-                </RadioGroup>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
 </layout>
