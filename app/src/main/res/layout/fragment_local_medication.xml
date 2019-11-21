@@ -42,47 +42,42 @@
             android:id="@+id/recyclerview"
             android:layout_width="543dp"
             android:layout_height="0dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
             android:background="@android:color/darker_gray"
-            app:layout_constraintBottom_toTopOf="@+id/homeButton"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeButton"
             tools:listitem="@layout/recyclerview_item" />
 <!--change-->
-        <Button
-            android:id="@+id/viewMedicationButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="100dp"
-            android:layout_marginBottom="100dp"
-            android:text="View Med"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
 
-        <Button
+        <ImageButton
             android:id="@+id/addMedicationButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
-            android:layout_marginBottom="100dp"
-            android:text="Add Medication"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="130dp"
+            android:layout_marginBottom="796dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/add_med_icon"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <Button
             android:id="@+id/homeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="59dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="103dp"
+            android:layout_marginStart="130dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="764dp"
             android:text="Home"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/viewMedicationButton"
-            app:layout_constraintStart_toEndOf="@+id/addMedicationButton"
-            app:layout_constraintTop_toBottomOf="@+id/addMedicationButton"
-            app:layout_constraintVertical_bias="0.972" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintVertical_bias="0.528" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
