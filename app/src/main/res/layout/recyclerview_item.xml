@@ -7,13 +7,13 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="50dp">
 
         <TextView
             android:id="@+id/rv_medicationName"
             style="@style/word_title"
             android:layout_width="150dp"
-            android:layout_height="35dp"
+            android:layout_height="50dp"
             android:layout_marginEnd="8dp"
             android:background="@color/colorPrimaryDark"
             app:layout_constraintEnd_toStartOf="@+id/rv_medicationQty"
@@ -24,7 +24,7 @@
             android:id="@+id/rv_medicationQty"
             style="@style/word_title"
             android:layout_width="150dp"
-            android:layout_height="35dp"
+            android:layout_height="50dp"
             android:background="@color/colorPrimaryDark"
             app:layout_constraintStart_toEndOf="@+id/rv_medicationName"
             app:layout_constraintTop_toTopOf="parent" />
@@ -33,7 +33,7 @@
             android:id="@+id/rv_medicationType"
             style="@style/word_title"
             android:layout_width="150dp"
-            android:layout_height="35dp"
+            android:layout_height="50dp"
             android:background="@color/colorPrimaryDark"
             app:layout_constraintStart_toEndOf="@+id/rv_medicationQty"
             app:layout_constraintTop_toTopOf="parent" />
@@ -41,13 +41,14 @@
         <Button
             android:id="@+id/rv_viewMedicationButton"
             android:layout_width="75dp"
-            android:layout_height="35dp"
+            android:layout_height="50dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="16dp"
             android:text="View"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/rv_medicationType"
             app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
