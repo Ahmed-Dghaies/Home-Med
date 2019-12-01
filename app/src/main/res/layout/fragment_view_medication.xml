@@ -54,7 +54,7 @@
             app:layout_constraintTop_toBottomOf="@+id/vm_medicationNameTitle" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/localMedicationTityle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -81,7 +81,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/goBackToLocalMedicationButton"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/localMedicationTityle"
             app:layout_constraintVertical_bias="1.0" />
 
         <Button
@@ -96,7 +96,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/deleteMedicationButton"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/localMedicationTityle"
             app:layout_constraintVertical_bias="1.0" />
 
         <TextView
@@ -112,7 +112,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/localMedicationTityle" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
