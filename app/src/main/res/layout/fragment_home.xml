@@ -16,6 +16,10 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="200dp"
             android:layout_marginEnd="32dp"
+<<<<<<< HEAD
+=======
+            android:layout_marginBottom="200dp"
+>>>>>>> parent of 485fe81... Added String messages for all text within application and altered appearance of text.
             android:text="Home Med"
             android:textSize="70sp"
             android:textStyle="bold"

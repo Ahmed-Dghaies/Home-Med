@@ -63,7 +63,11 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="32dp"
+<<<<<<< HEAD
             android:text="Local Medication"
+=======
+            android:text="LOCAL MEDICATION"
+>>>>>>> parent of 485fe81... Added String messages for all text within application and altered appearance of text.
             android:textSize="36sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -115,9 +119,17 @@
             android:id="@+id/homeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:layout_marginStart="13dp"
             android:layout_marginTop="32dp"
             android:text="Home"
+=======
+            android:layout_marginStart="130dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="764dp"
+            android:text="Home"
+            app:layout_constraintBottom_toBottomOf="parent"
+>>>>>>> parent of 485fe81... Added String messages for all text within application and altered appearance of text.
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -125,9 +137,15 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:layout_marginStart="8dp"
             android:layout_marginTop="155dp"
             android:text="Medication Name"
+=======
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="50dp"
+            android:text="NAME"
+>>>>>>> parent of 485fe81... Added String messages for all text within application and altered appearance of text.
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -135,16 +153,24 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:layout_marginStart="80dp"
             android:layout_marginTop="75dp"
             android:text="Quantity"
             app:layout_constraintStart_toEndOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/localMedicationTityle" />
+=======
+            android:layout_marginStart="70dp"
+            android:text="QUANTITY"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView4"
+            app:layout_constraintStart_toEndOf="@+id/textView4" />
+>>>>>>> parent of 485fe81... Added String messages for all text within application and altered appearance of text.
 
         <TextView
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:layout_marginStart="112dp"
             android:layout_marginTop="75dp"
             android:text="Type"
@@ -165,6 +191,12 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recyclerview" />
+=======
+            android:layout_marginStart="100dp"
+            android:text="TYPE"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView5"
+            app:layout_constraintStart_toEndOf="@+id/textView5" />
+>>>>>>> parent of 485fe81... Added String messages for all text within application and altered appearance of text.
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
