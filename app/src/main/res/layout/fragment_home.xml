@@ -17,9 +17,12 @@
             android:layout_marginTop="200dp"
             android:layout_marginEnd="32dp"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             android:layout_marginBottom="200dp"
 >>>>>>> parent of 485fe81... Added String messages for all text within application and altered appearance of text.
+=======
+>>>>>>> parent of b829207... Layout changes to allow flipping of device. Strings changes to alter text to be more consistent
             android:text="Home Med"
             android:textSize="70sp"
             android:textStyle="bold"
