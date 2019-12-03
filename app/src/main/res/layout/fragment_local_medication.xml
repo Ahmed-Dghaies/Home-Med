@@ -16,7 +16,8 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="32dp"
-            android:text="LOCAL MEDICATION"
+            android:text="@string/local_medication_title"
+            android:textAllCaps="true"
             android:textSize="36sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -73,7 +74,7 @@
             android:layout_marginStart="130dp"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="764dp"
-            android:text="Home"
+            android:text="@string/go_home"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
@@ -85,7 +86,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="45dp"
             android:layout_marginTop="50dp"
-            android:text="NAME"
+            android:text="@string/name_header"
+            android:textAllCaps="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/homeButton" />
 
@@ -94,7 +96,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="70dp"
-            android:text="QUANTITY"
+            android:text="@string/quantity_header"
+            android:textAllCaps="true"
             app:layout_constraintBaseline_toBaselineOf="@+id/textView4"
             app:layout_constraintStart_toEndOf="@+id/textView4" />
 
@@ -103,7 +106,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
-            android:text="TYPE"
+            android:text="@string/type_header"
+            android:textAllCaps="true"
             app:layout_constraintBaseline_toBaselineOf="@+id/textView5"
             app:layout_constraintStart_toEndOf="@+id/textView5" />
     </androidx.constraintlayout.widget.ConstraintLayout>
