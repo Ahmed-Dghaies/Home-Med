@@ -7,12 +7,35 @@
     <string name="login">Login</string>
     <string name="email_hint">Enter your email address</string>
     <string name="password_hint">Enter your password</string>
-    <string name="login_page_text">Don\'t have an account? Sign up!</string>
+    <string name="login_page_text">Don\'t have an account already? Sign up!</string>
     <string name="password_confirmation">Confirm your password</string>
-    <string name="register_page_text">You have and account? Login!</string>
+    <string name="register_page_text">Do you already have an account? Login!</string>
     <string name="profile">Profile</string>
-    <string name="go_home">Go home</string>
-    <string name="profile_info">Profile info</string>
+    <string name="go_home">Home</string>
+    <string name="profile_info">Profile Information</string>
     <string name="logout">Logout</string>
     <string name="email">Email:</string>
+    <string name="local_medication_title">Local Medication</string>
+    <string name="name_header">Name</string>
+    <string name="quantity_header">Quantity</string>
+    <string name="type_header">Type</string>
+    <string name="add_medication_title">Add Medication</string>
+    <string name="save_button">Save</string>
+    <string name="home_title">Home Med</string>
+    <string name="view_local_med">View Local Medications</string>
+    <string name="local_med_button">Local Medications</string>
+    <string name="view_profile">View Profile</string>
+    <string name="view_med_title">View Medication</string>
+    <string name="add_med_name_hint">Medication Name</string>
+    <string name="add_med_quantity_hint">Quantity</string>
+    <string name="add_med_type_hint">Medication Type</string>
+    <string name="add_med_expiration_hint">Expiration Date</string>
+    <string name="view_med_name">Medication Name = </string>
+    <string name="view_med_type">Medication Type = </string>
+    <string name="view_med_expiration">Expiration Date = </string>
+    <string name="view_med_quantity">Quantity = </string>
+    <string name="local_button">Local Medications</string>
+    <string name="delete_med_button">Delete Medication</string>
+    <string name="view_button">View</string>
+
 </resources>
