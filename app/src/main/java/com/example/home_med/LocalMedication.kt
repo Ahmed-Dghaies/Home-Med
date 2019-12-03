@@ -133,7 +133,6 @@ class LocalMedication : Fragment() {
             }
         }
 
-        binding.
         binding.recyclerview.apply {
             setHasFixedSize(true)
             layoutManager = mLayoutManager

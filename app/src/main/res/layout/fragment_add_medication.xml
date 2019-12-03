@@ -104,6 +104,98 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Pill" />
+                <EditText
+                    android:id="@+id/medicationExpDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="59dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="324dp"
+                    android:ems="10"
+                    android:hint="@string/add_med_expiration_hint"
+                    android:inputType="textPersonName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/medicationType" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="366dp"
+                    android:layout_height="47dp"
+                    android:layout_marginStart="146dp"
+                    android:layout_marginTop="67dp"
+                    android:layout_marginEnd="146dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/add_medication_title"
+                    android:textSize="36sp"
+                    app:layout_constraintBottom_toTopOf="@+id/medicationName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/saveMedicationButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="263dp"
+                    android:layout_marginTop="400dp"
+                    android:layout_marginEnd="250dp"
+                    android:layout_marginBottom="250dp"
+                    android:text="@string/save_button"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/medicationQty"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <EditText
+                    android:id="@+id/medicationName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="59dp"
+                    android:layout_marginEnd="324dp"
+                    android:layout_marginBottom="41dp"
+                    android:ems="10"
+                    android:hint="@string/add_med_name_hint"
+                    android:inputType="textPersonName"
+                    app:layout_constraintBottom_toTopOf="@+id/medicationQty"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/saveMedicationButton" />
+
+                <EditText
+                    android:id="@+id/medicationQty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="59dp"
+                    android:layout_marginEnd="324dp"
+                    android:layout_marginBottom="58dp"
+                    android:ems="10"
+                    android:hint="@string/add_med_quantity_hint"
+                    android:inputType="number"
+                    app:layout_constraintBottom_toTopOf="@+id/medicationType"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/medicationName" />
+
+                <EditText
+                    android:id="@+id/medicationType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="59dp"
+                    android:layout_marginEnd="324dp"
+                    android:layout_marginBottom="23dp"
+                    android:ems="10"
+                    android:hint="@string/add_med_quantity_hint"
+                    android:inputType="textPersonName"
+                    app:layout_constraintBottom_toTopOf="@+id/medicationExpDate"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/medicationQty" />
 
                 <RadioButton
                     android:id="@+id/liquidButton"
