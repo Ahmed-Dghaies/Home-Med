@@ -8,13 +8,13 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/rv_medicationName"
             style="@style/word_title"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
+            android:layout_width="165dp"
+            android:layout_height="44dp"
             android:layout_marginEnd="8dp"
             android:background="@color/colorPrimaryDark"
             android:clickable="true"
@@ -26,8 +26,8 @@
         <TextView
             android:id="@+id/rv_medicationQty"
             style="@style/word_title"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
+            android:layout_width="153dp"
+            android:layout_height="44dp"
             android:background="@color/colorPrimaryDark"
             android:clickable="true"
             android:gravity="center"
@@ -37,8 +37,8 @@
         <TextView
             android:id="@+id/rv_medicationType"
             style="@style/word_title"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
+            android:layout_width="156dp"
+            android:layout_height="44dp"
             android:background="@color/colorPrimaryDark"
             android:clickable="true"
             android:gravity="center"
@@ -47,17 +47,16 @@
 
         <Button
             android:id="@+id/rv_viewMedicationButton"
-            android:layout_width="75dp"
-            android:layout_height="50dp"
+            android:layout_width="76dp"
+            android:layout_height="33dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="16dp"
-            android:text="@string/view_button"
+            android:text="View"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/rv_medicationType"
             app:layout_constraintTop_toTopOf="parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
