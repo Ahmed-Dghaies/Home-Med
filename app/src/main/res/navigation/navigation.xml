@@ -37,10 +37,12 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_home2_to_localMedication"
-            app:destination="@id/localMedication" />
+            app:destination="@id/localMedication"
+            app:popUpTo="@+id/home2" />
         <action
             android:id="@+id/action_home2_to_profileFragment"
-            app:destination="@id/profileFragment" />
+            app:destination="@id/profileFragment"
+            app:popUpTo="@+id/home2" />
     </fragment>
     <fragment
         android:id="@+id/localMedication"
@@ -49,13 +51,16 @@
         tools:layout="@layout/fragment_local_medication" >
         <action
             android:id="@+id/action_localMedication_to_addMedication"
-            app:destination="@id/addMedication" />
+            app:destination="@id/addMedication"
+            app:popUpTo="@+id/localMedication" />
         <action
             android:id="@+id/action_localMedication_to_viewMedication"
-            app:destination="@id/viewMedication" />
+            app:destination="@id/viewMedication"
+            app:popUpTo="@+id/localMedication" />
         <action
             android:id="@+id/action_localMedication_to_home2"
-            app:destination="@id/home2" />
+            app:destination="@id/home2"
+            app:popUpTo="@+id/home2" />
     </fragment>
     <fragment
         android:id="@+id/addMedication"
@@ -64,7 +69,8 @@
         tools:layout="@layout/fragment_add_medication" >
         <action
             android:id="@+id/action_addMedication_to_localMedication"
-            app:destination="@id/localMedication" />
+            app:destination="@id/localMedication"
+            app:popUpTo="@+id/localMedication" />
     </fragment>
     <fragment
         android:id="@+id/viewMedication"
@@ -73,7 +79,11 @@
         tools:layout="@layout/fragment_view_medication" >
         <action
             android:id="@+id/action_viewMedication_to_localMedication"
-            app:destination="@id/localMedication" />
+            app:destination="@id/localMedication"
+            app:popUpTo="@+id/localMedication" />
+        <argument
+            android:name="medicationName"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"

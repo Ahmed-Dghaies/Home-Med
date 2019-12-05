@@ -21,10 +21,12 @@ import kotlinx.android.synthetic.main.fragment_local_medication.*
 class LocalMedication : Fragment() {
 
     private var medAdapter: FirestoreRecyclerAdapter<m_LocalMedication, medicationViewHolder>? = null
+    private var medAdapterInactive: FirestoreRecyclerAdapter<m_LocalMedication, medicationViewHolder>? = null
 
     private var firestoreDB: FirebaseFirestore? = null
     private var firestoreListener: ListenerRegistration? = null
     private var medList = mutableListOf<m_LocalMedication>()
+    private var medListInactive = mutableListOf<m_LocalMedication>()
 
     override fun onDestroy() {
         super.onDestroy()
@@ -32,11 +34,13 @@ class LocalMedication : Fragment() {
     }
     override fun onStart() {
         super.onStart()
+        medAdapterInactive!!.startListening()
         medAdapter!!.startListening()
     }
 
     override fun onStop() {
         super.onStop()
+        medAdapterInactive!!.stopListening()
         medAdapter!!.stopListening()
     }
 
@@ -46,11 +50,12 @@ class LocalMedication : Fragment() {
         firestoreDB = FirebaseFirestore.getInstance()
 
         val mLayoutManager = LinearLayoutManager(context)
+        val mLayoutManagerInactive = LinearLayoutManager(context)
 
 
 
         //val query = firestoreDB!!.collection("Medication").whereEqualTo("m_medicationName", "Adderol")
-        val query = firestoreDB!!.collection("Medication")
+        val query = firestoreDB!!.collection("Medication").whereEqualTo("m_medicationStatus", true)
 
         val response = FirestoreRecyclerOptions.Builder<m_LocalMedication>()
             .setQuery(query, m_LocalMedication::class.java)
@@ -63,6 +68,57 @@ class LocalMedication : Fragment() {
                 holder.medicationName.text = note.m_medicationName
                 holder.medicationType.text = note.m_medicationType
                 holder.medicationQty.text = note.m_medicationQty
+                holder.viewMedicationButton.setOnClickListener { v: View ->
+                    v.findNavController().navigate(LocalMedicationDirections.actionLocalMedicationToViewMedication(note.m_medicationName.toString()))
+                }
+                holder.medicationQty.setOnClickListener { v: View ->
+                    v.findNavController().navigate(LocalMedicationDirections.actionLocalMedicationToViewMedication(note.m_medicationName.toString()))
+                }
+                holder.medicationType.setOnClickListener { v: View ->
+                    v.findNavController().navigate(LocalMedicationDirections.actionLocalMedicationToViewMedication(note.m_medicationName.toString()))
+                }
+                holder.medicationName.setOnClickListener { v: View ->
+                    v.findNavController().navigate(LocalMedicationDirections.actionLocalMedicationToViewMedication(note.m_medicationName.toString()))
+                }
+            }
+
+            override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): medicationViewHolder {
+                val view = LayoutInflater.from(parent.context)
+                    .inflate(R.layout.recyclerview_item, parent, false)
+
+                return medicationViewHolder(view)
+            }
+
+            override fun onError(e: FirebaseFirestoreException) {
+                Log.e("error", e!!.message)
+            }
+        }
+
+        val queryInactive = firestoreDB!!.collection("Medication").whereEqualTo("m_medicationStatus", false)
+
+        val responseInactive = FirestoreRecyclerOptions.Builder<m_LocalMedication>()
+            .setQuery(queryInactive, m_LocalMedication::class.java)
+            .build()
+
+        medAdapterInactive = object : FirestoreRecyclerAdapter<m_LocalMedication, medicationViewHolder>(responseInactive) {
+            override fun onBindViewHolder(holder: medicationViewHolder, position: Int, model: m_LocalMedication) {
+                val note = medListInactive[position]
+
+                holder.medicationName.text = note.m_medicationName
+                holder.medicationType.text = note.m_medicationType
+                holder.medicationQty.text = note.m_medicationQty
+                holder.viewMedicationButton.setOnClickListener { v: View ->
+                    v.findNavController().navigate(LocalMedicationDirections.actionLocalMedicationToViewMedication(note.m_medicationName.toString()))
+                }
+                holder.medicationQty.setOnClickListener { v: View ->
+                    v.findNavController().navigate(LocalMedicationDirections.actionLocalMedicationToViewMedication(note.m_medicationName.toString()))
+                }
+                holder.medicationType.setOnClickListener { v: View ->
+                    v.findNavController().navigate(LocalMedicationDirections.actionLocalMedicationToViewMedication(note.m_medicationName.toString()))
+                }
+                holder.medicationName.setOnClickListener { v: View ->
+                    v.findNavController().navigate(LocalMedicationDirections.actionLocalMedicationToViewMedication(note.m_medicationName.toString()))
+                }
             }
 
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): medicationViewHolder {
@@ -83,10 +139,19 @@ class LocalMedication : Fragment() {
             adapter = medAdapter
         }
 
+        binding.recyclerviewInactive.apply {
+            setHasFixedSize(true)
+            layoutManager = mLayoutManagerInactive
+            adapter = medAdapterInactive
+        }
+
         medAdapter!!.notifyDataSetChanged()
         recyclerview?.adapter = medAdapter
 
-        firestoreListener = firestoreDB!!.collection("Medication")
+        medAdapterInactive!!.notifyDataSetChanged()
+        recyclerviewInactive?.adapter = medAdapterInactive
+
+        firestoreListener = firestoreDB!!.collection("Medication").whereEqualTo("m_medicationStatus", true)
             .addSnapshotListener(EventListener { documentSnapshots, e ->
                 if (e != null) {
                     Log.e(TAG, "Listen failed!", e)
@@ -106,9 +171,27 @@ class LocalMedication : Fragment() {
                 recyclerview?.adapter = medAdapter
             })
 
-        binding.viewMedicationButton.setOnClickListener { v: View ->
-            v.findNavController().navigate(LocalMedicationDirections.actionLocalMedicationToViewMedication())
-        }
+        firestoreListener = firestoreDB!!.collection("Medication").whereEqualTo("m_medicationStatus", false)
+            .addSnapshotListener(EventListener { documentSnapshots, e ->
+                if (e != null) {
+                    Log.e(TAG, "Listen failed!", e)
+                    return@EventListener
+                }
+
+                medListInactive = mutableListOf()
+
+                if (documentSnapshots != null) {
+                    for (doc in documentSnapshots) {
+                        val note = doc.toObject(m_LocalMedication::class.java)
+                        note.m_medicationName = doc.id
+                        medListInactive.add(note)
+                    }
+                }
+                medAdapterInactive!!.notifyDataSetChanged()
+                recyclerviewInactive?.adapter = medAdapterInactive
+            })
+
+
         binding.addMedicationButton.setOnClickListener { v: View ->
             v.findNavController().navigate(LocalMedicationDirections.actionLocalMedicationToAddMedication())
         }

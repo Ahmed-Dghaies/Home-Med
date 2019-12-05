@@ -8,15 +8,17 @@ class m_LocalMedication {
     var m_medicationType: String? = null
     var m_medicationExpDate: String? = null
     var m_medicationStatus: Boolean = false
+    var m_medicationDays : ArrayList<String>? = null
 
     constructor() {}
 
-    constructor(medicationName: String, medicationQty: String, medicationType: String, medicationExpDat : String, medicationStatus : Boolean) {
+    constructor(medicationName: String, medicationQty: String, medicationType: String, medicationExpDat : String, medicationStatus : Boolean, medicationDays : ArrayList<String>) {
         this.m_medicationName = medicationName
         this.m_medicationType = medicationType
         this.m_medicationQty = medicationQty
         this.m_medicationExpDate = medicationExpDat
         this.m_medicationStatus = medicationStatus
+        this.m_medicationDays = medicationDays
     }
 
     fun toMap(): Map<String, Any> {
@@ -27,6 +29,7 @@ class m_LocalMedication {
         result.put("medicationQty", m_medicationQty!!)
         result.put("medicationExpDate", m_medicationExpDate!!)
         result.put("medicationStatus", m_medicationStatus!!)
+        result.put("medicationDays", m_medicationDays!!)
 
         return result
     }
