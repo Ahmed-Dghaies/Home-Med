@@ -31,12 +31,23 @@ class ViewMedication : Fragment() {
                 val medicationExpDate = documentSnapshot.getString("m_medicationExpDate")
                 val medicationQty = documentSnapshot.getString("m_medicationQty")
                 val medicationType = documentSnapshot.getString("m_medicationType")
+                val medicationStatus = documentSnapshot.getBoolean("m_medicationStatus")!!
+                //val medicationDays = arrayListOf(documentSnapshot.ge("m_medicationDays"))
 
+                //medicationName1 = medicationName.toString()
+//                vm_medicationTypeTitle.text = medicationType
+//                vm_medicationExpDateTitle.text = medicationExpDate
+//                vm_medicationQtyTitle.text = medicationQty
+                if (medicationStatus == true) {
+                    binding.activateMedicationBtn.visibility = View.INVISIBLE
+                }
+                if (medicationType == "Pill") {
+                    binding.pillButton.isChecked = true
+                }
+                else {
+                    binding.liquidButton.isChecked = true
+                }
 
-                vm_medicationNameTitle.text = medicationName
-                vm_medicationTypeTitle.text = medicationType
-                vm_medicationExpDateTitle.text = medicationExpDate
-                vm_medicationQtyTitle.text = medicationQty
             }
 
         binding.deleteMedicationButton.setOnClickListener { v: View ->
@@ -44,8 +55,11 @@ class ViewMedication : Fragment() {
                 .document(args.medicationName).delete()
             v.findNavController().navigate(ViewMedicationDirections.actionViewMedicationToLocalMedication())
         }
-        binding.goBackToLocalMedicationButton.setOnClickListener { v: View ->
-            v.findNavController().navigate(ViewMedicationDirections.actionViewMedicationToLocalMedication())
+        binding.activateMedicationBtn.setOnClickListener { v: View ->
+            binding.activateMedicationBtn.visibility = View.INVISIBLE
+        }
+        binding.updateMedicationBtn.setOnClickListener { v: View ->
+
         }
 
         setHasOptionsMenu(true)

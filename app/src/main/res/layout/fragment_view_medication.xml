@@ -4,115 +4,227 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ViewMedication">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="-88dp">
 
-        <TextView
-            android:id="@+id/vm_medicationExpDateTitle"
-            android:layout_width="229dp"
-            android:layout_height="53dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="19dp"
-            android:layout_marginEnd="287dp"
-            android:layout_marginBottom="552dp"
-            android:text="Medication Expiration Date = "
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/vm_medicationQtyTitle" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/vm_medicationQtyTitle"
-            android:layout_width="229dp"
-            android:layout_height="53dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="287dp"
-            android:layout_marginBottom="624dp"
-            android:text="Medication Quantity = "
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/vm_medicationTypeTitle" />
+            <EditText
+                android:id="@+id/vm_medicationExpDateTitle"
+                android:layout_width="218dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="59dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="324dp"
+                android:layout_marginBottom="30dp"
+                android:ems="10"
+                android:hint="Expiration Date"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vm_medicationQtyTitle" />
 
-        <TextView
-            android:id="@+id/vm_medicationTypeTitle"
-            android:layout_width="229dp"
-            android:layout_height="53dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="14dp"
-            android:layout_marginEnd="287dp"
-            android:layout_marginBottom="692dp"
-            android:text="Medication Type = "
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/vm_medicationNameTitle" />
+            <TextView
+                android:id="@+id/localMedicationTitle"
+                android:layout_width="291dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="184dp"
+                android:layout_marginTop="59dp"
+                android:layout_marginEnd="184dp"
+                android:layout_marginBottom="60dp"
+                android:text="View Medication"
+                android:textSize="36sp"
+                app:layout_constraintBottom_toTopOf="@+id/vm_medicationNameTitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/localMedicationTityle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="32dp"
-            android:text="VIEW MEDICATION"
-            android:textSize="36sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            <AutoCompleteTextView
+                android:id="@+id/vm_medicationNameTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="59dp"
+                android:layout_marginEnd="324dp"
+                android:layout_marginBottom="30dp"
+                android:ems="10"
+                android:hint="Medication Name"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toTopOf="@+id/vm_medicationQtyTitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
-            android:id="@+id/deleteMedicationButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="45dp"
-            android:layout_marginTop="103dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="150dp"
-            android:text="Delete Medication"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/goBackToLocalMedicationButton"
-            app:layout_constraintTop_toBottomOf="@+id/localMedicationTityle"
-            app:layout_constraintVertical_bias="1.0" />
+            <EditText
+                android:id="@+id/vm_medicationQtyTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="59dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="324dp"
+                android:ems="10"
+                android:hint="Quantity"
+                android:inputType="number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vm_medicationNameTitle" />
 
-        <Button
-            android:id="@+id/goBackToLocalMedicationButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="103dp"
-            android:layout_marginEnd="45dp"
-            android:layout_marginBottom="150dp"
-            android:text="Go Back To Local"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/deleteMedicationButton"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/localMedicationTityle"
-            app:layout_constraintVertical_bias="1.0" />
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="217dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="59dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="325dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vm_medicationExpDateTitle">
 
-        <TextView
-            android:id="@+id/vm_medicationNameTitle"
-            android:layout_width="229dp"
-            android:layout_height="53dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="68dp"
-            android:layout_marginEnd="287dp"
-            android:layout_marginBottom="760dp"
-            android:text="Medication Name = "
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/localMedicationTityle" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <RadioButton
+                    android:id="@+id/pillButton"
+                    android:layout_width="69dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Pill" />
 
+                <RadioButton
+                    android:id="@+id/liquidButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Liquid" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/daysTakingText"
+                android:layout_width="218dp"
+                android:layout_height="31dp"
+                android:layout_marginStart="58dp"
+                android:layout_marginTop="112dp"
+                android:layout_marginEnd="325dp"
+                android:text="Days Taking"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+            <CheckBox
+                android:id="@+id/fridayCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="340dp"
+                android:text="Friday"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/daysTakingText" />
+
+            <CheckBox
+                android:id="@+id/mondayCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="59dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:text="Monday"
+                app:layout_constraintBottom_toTopOf="@+id/tuesdayCheck"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/daysTakingText" />
+
+            <CheckBox
+                android:id="@+id/wednesdayCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="59dp"
+                android:layout_marginTop="8dp"
+                android:text="Wednesday"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tuesdayCheck" />
+
+            <CheckBox
+                android:id="@+id/thursdayCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="59dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="450dp"
+                android:text="Thursday"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/wednesdayCheck" />
+
+            <CheckBox
+                android:id="@+id/sundayCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="333dp"
+                android:text="Sunday"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/saturdayCheck" />
+
+            <CheckBox
+                android:id="@+id/saturdayCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="323dp"
+                android:text="Saturday"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fridayCheck" />
+
+            <CheckBox
+                android:id="@+id/tuesdayCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="59dp"
+                android:layout_marginTop="8dp"
+                android:text="Tuesday"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mondayCheck" />
+
+            <Button
+                android:id="@+id/activateMedicationBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="74dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="344dp"
+                android:text="Activate Medication"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+            <Button
+                android:id="@+id/deleteMedicationButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="85dp"
+                android:layout_marginTop="160dp"
+                android:text="Delete Medication"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sundayCheck" />
+
+            <Button
+                android:id="@+id/updateMedicationBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="75dp"
+                android:layout_marginEnd="85dp"
+                android:text="Update Medication"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/deleteMedicationButton" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>

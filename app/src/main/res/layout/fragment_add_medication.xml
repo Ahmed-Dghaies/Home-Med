@@ -15,7 +15,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/medicationExpDate"
+                android:id="@+id/vm_medicationExpDateTitle"
                 android:layout_width="218dp"
                 android:layout_height="44dp"
                 android:layout_marginStart="59dp"
@@ -29,7 +29,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/medicationQty" />
+                app:layout_constraintTop_toBottomOf="@+id/vm_medicationQtyTitle" />
 
             <TextView
                 android:id="@+id/localMedicationTitle"
@@ -41,7 +41,7 @@
                 android:layout_marginBottom="60dp"
                 android:text="Add Medication"
                 android:textSize="36sp"
-                app:layout_constraintBottom_toTopOf="@+id/medicationName"
+                app:layout_constraintBottom_toTopOf="@+id/vm_medicationNameTitle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -59,7 +59,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
             <AutoCompleteTextView
-                android:id="@+id/medicationName"
+                android:id="@+id/vm_medicationNameTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="59dp"
@@ -68,12 +68,12 @@
                 android:ems="10"
                 android:hint="Medication Name"
                 android:inputType="textPersonName"
-                app:layout_constraintBottom_toTopOf="@+id/medicationQty"
+                app:layout_constraintBottom_toTopOf="@+id/vm_medicationQtyTitle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <EditText
-                android:id="@+id/medicationQty"
+                android:id="@+id/vm_medicationQtyTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="59dp"
@@ -84,7 +84,7 @@
                 android:inputType="number"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/medicationName" />
+                app:layout_constraintTop_toBottomOf="@+id/vm_medicationNameTitle" />
 
             <RadioGroup
                 android:id="@+id/radioGroup"
@@ -96,7 +96,7 @@
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/medicationExpDate">
+                app:layout_constraintTop_toBottomOf="@+id/vm_medicationExpDateTitle">
 
                 <RadioButton
                     android:id="@+id/pillButton"

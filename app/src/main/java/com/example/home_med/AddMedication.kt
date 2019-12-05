@@ -12,12 +12,8 @@ import com.example.home_med.databinding.FragmentAddMedicationBinding
 import com.example.home_med.models.m_LocalMedication
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_add_medication.*
-import android.content.Context.INPUT_METHOD_SERVICE
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import androidx.core.content.ContextCompat.getSystemService
-
-
 
 
 class AddMedication : Fragment() {
@@ -33,13 +29,13 @@ class AddMedication : Fragment() {
 
         binding.saveMedicationButton.setOnClickListener { v: View ->
 
-            if (medicationName.text.toString().isEmpty()) {
+            if (vm_medicationNameTitle.text.toString().isEmpty()) {
                 Toast.makeText(context, "Please Enter a Medication Name", Toast.LENGTH_SHORT).show()
             }
-            else if (medicationQty.text.toString().isEmpty()) {
+            else if (vm_medicationQtyTitle.text.toString().isEmpty()) {
                 Toast.makeText(context, "Please Enter a Medication Quantity", Toast.LENGTH_SHORT).show()
             }
-            else if (medicationExpDate.text.toString().isEmpty()) {
+            else if (vm_medicationExpDateTitle.text.toString().isEmpty()) {
                 Toast.makeText(context, "Please Enter a Medication Expiration Date", Toast.LENGTH_SHORT).show()
             }
             else if (!pillButton.isChecked && !liquidButton.isChecked) {
@@ -76,15 +72,15 @@ class AddMedication : Fragment() {
                     medicationType = liquidButton.text.toString()
                 }
 
-                val medicine = m_LocalMedication(medicationName.text.toString(), medicationQty.text.toString(),
-                    medicationType, medicationExpDate.text.toString(), true, medicationDays)
+                val medicine = m_LocalMedication(vm_medicationNameTitle.text.toString(), vm_medicationQtyTitle.text.toString(),
+                    medicationType, vm_medicationExpDateTitle.text.toString(), true, medicationDays)
 
                 db.collection("Medication")
-                    .document(medicationName.text.toString())
+                    .document(vm_medicationNameTitle.text.toString())
                     .set(medicine)
 
                 val mgr = activity!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                mgr.hideSoftInputFromWindow(medicationExpDate.getWindowToken(), 0)
+                mgr.hideSoftInputFromWindow(vm_medicationExpDateTitle.getWindowToken(), 0)
                 v.findNavController().navigate(AddMedicationDirections.actionAddMedicationToLocalMedication())
             }
         }
