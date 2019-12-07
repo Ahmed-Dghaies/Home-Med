@@ -52,9 +52,6 @@ class LocalMedication : Fragment() {
         val mLayoutManager = LinearLayoutManager(context)
         val mLayoutManagerInactive = LinearLayoutManager(context)
 
-
-
-        //val query = firestoreDB!!.collection("Medication").whereEqualTo("m_medicationName", "Adderol")
         val query = firestoreDB!!.collection("Medication").whereEqualTo("m_medicationStatus", true)
 
         val response = FirestoreRecyclerOptions.Builder<m_LocalMedication>()

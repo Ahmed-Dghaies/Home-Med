@@ -13,10 +13,7 @@ import androidx.navigation.findNavController
 import com.example.home_med.databinding.FragmentLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import androidx.fragment.app.FragmentTransaction
 import kotlinx.android.synthetic.main.fragment_login.*
-import kotlinx.android.synthetic.main.fragment_register.*
-
 
 class Login : Fragment() {
 
@@ -37,7 +34,7 @@ class Login : Fragment() {
             binding.loginButton.findNavController().navigate(LoginDirections.actionLoginToRegister())
         }
 
-        var user: FirebaseUser? = firebaseAuth.currentUser
+        val user: FirebaseUser? = firebaseAuth.currentUser
         if (user != null) {
             container?.findNavController()?.navigate(LoginDirections.actionLoginToHome2())
         }

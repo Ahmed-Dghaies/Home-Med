@@ -1,7 +1,5 @@
 package com.example.home_med
 
-import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,10 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
-import com.example.home_med.databinding.FragmentRegisterBinding
 import com.example.home_med.databinding.FragmentViewMedicationBinding
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.fragment_view_medication.*
 
 
 class ViewMedication : Fragment() {
@@ -33,9 +29,15 @@ class ViewMedication : Fragment() {
                 val medicationType = documentSnapshot.getString("m_medicationType")
                 val medicationStatus = documentSnapshot.getBoolean("m_medicationStatus")!!
 
-                if (medicationStatus == true) {
+                if (medicationStatus) {
                     binding.activateMedicationBtn.visibility = View.INVISIBLE
+                    binding.deactivateMedicationBtn.visibility = View.VISIBLE
                 }
+                else if (!medicationStatus) {
+                    binding.deactivateMedicationBtn.visibility = View.INVISIBLE
+                    binding.activateMedicationBtn.visibility = View.VISIBLE
+                }
+
                 if (medicationType == "Pill") {
                     binding.pillButton.isChecked = true
                 }
@@ -70,6 +72,10 @@ class ViewMedication : Fragment() {
                 medicationDocRef.update("m_medicationType", "Liquid")
             }
 
+            v.findNavController().navigate(ViewMedicationDirections.actionViewMedicationToLocalMedication())
+        }
+        binding.deactivateMedicationBtn.setOnClickListener { v: View ->
+            medicationDocRef.update("m_medicationStatus", false)
             v.findNavController().navigate(ViewMedicationDirections.actionViewMedicationToLocalMedication())
         }
 
