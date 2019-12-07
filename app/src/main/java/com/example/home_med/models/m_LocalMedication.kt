@@ -15,10 +15,10 @@ class m_LocalMedication {
     constructor(medicationName: String, medicationQty: String, medicationType: String, medicationExpDat : String, medicationStatus : Boolean, medicationDays : ArrayList<String>) {
         this.m_medicationName = medicationName
         this.m_medicationType = medicationType
-        this.m_medicationQty = medicationQty
         this.m_medicationExpDate = medicationExpDat
         this.m_medicationStatus = medicationStatus
         this.m_medicationDays = medicationDays
+        this.m_medicationQty = medicationQty
     }
 
     fun toMap(): Map<String, Any> {

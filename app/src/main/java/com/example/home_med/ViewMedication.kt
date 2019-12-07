@@ -32,12 +32,7 @@ class ViewMedication : Fragment() {
                 val medicationQty = documentSnapshot.getString("m_medicationQty")
                 val medicationType = documentSnapshot.getString("m_medicationType")
                 val medicationStatus = documentSnapshot.getBoolean("m_medicationStatus")!!
-                //val medicationDays = arrayListOf(documentSnapshot.ge("m_medicationDays"))
 
-                //medicationName1 = medicationName.toString()
-//                vm_medicationTypeTitle.text = medicationType
-//                vm_medicationExpDateTitle.text = medicationExpDate
-//                vm_medicationQtyTitle.text = medicationQty
                 if (medicationStatus == true) {
                     binding.activateMedicationBtn.visibility = View.INVISIBLE
                 }
@@ -48,6 +43,11 @@ class ViewMedication : Fragment() {
                     binding.liquidButton.isChecked = true
                 }
 
+                binding.vmMedicationNameTitle.setText(medicationName)
+                binding.vmMedicationExpDateTitle.setText(medicationExpDate)
+                binding.vmMedicationQtyTitle.setText(medicationQty)
+
+
             }
 
         binding.deleteMedicationButton.setOnClickListener { v: View ->
@@ -56,10 +56,21 @@ class ViewMedication : Fragment() {
             v.findNavController().navigate(ViewMedicationDirections.actionViewMedicationToLocalMedication())
         }
         binding.activateMedicationBtn.setOnClickListener { v: View ->
-            binding.activateMedicationBtn.visibility = View.INVISIBLE
+            medicationDocRef.update("m_medicationStatus", true)
+            v.findNavController().navigate(ViewMedicationDirections.actionViewMedicationToLocalMedication())
         }
         binding.updateMedicationBtn.setOnClickListener { v: View ->
+            medicationDocRef.update("m_medicationExpDate", binding.vmMedicationExpDateTitle.text.toString())
+            medicationDocRef.update("m_medicationQty", binding.vmMedicationQtyTitle.text.toString())
 
+            if (binding.pillButton.isChecked) {
+                medicationDocRef.update("m_medicationType", "Pill")
+            }
+            else {
+                medicationDocRef.update("m_medicationType", "Liquid")
+            }
+
+            v.findNavController().navigate(ViewMedicationDirections.actionViewMedicationToLocalMedication())
         }
 
         setHasOptionsMenu(true)
