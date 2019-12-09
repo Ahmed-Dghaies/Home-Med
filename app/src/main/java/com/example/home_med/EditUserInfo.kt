@@ -34,15 +34,17 @@ class EditUserInfo : Fragment() {
 
         val binding: FragmentEditUserInfoBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_edit_user_info, container, false)
         firebaseAuth = FirebaseAuth.getInstance()
+        var user: FirebaseUser? = firebaseAuth.getCurrentUser()
+        val currentUserId = user!!.uid
 
         val docRef = db.collection("UserData").document(currentUserId)
         docRef.get()
             .addOnSuccessListener { document ->
                 if (document != null) {
                     Log.d("MyTag", "DocumentSnapshot data: ${document.data}")
-                    binding.userFirstName.text = document.data!!["first_name"].toString()
-                    binding.userLastName.text = document.data!!["last_name"].toString()
-                    binding.userAge.text = document.data!!["age"].toString()
+                    binding.userFirstName.setText(document.data!!["first_name"].toString())
+                    binding.userLastName.setText(document.data!!["last_name"].toString())
+                    binding.userAge.setText(document.data!!["age"].toString())
                 } else {
                     Log.d("MyTag", "No such document")
                 }
@@ -56,8 +58,6 @@ class EditUserInfo : Fragment() {
         }
 
         binding.save.setOnClickListener { v: View ->
-            var user: FirebaseUser? = firebaseAuth.getCurrentUser()
-            val currentUserId = user!!.uid
             val user_data = User(currentUserId, binding.userFirstName.text.toString(), binding.userLastName.text.toString(), Integer.parseInt(binding.userAge.text.toString()), user.email!!)
 
             db.collection("UserData")
