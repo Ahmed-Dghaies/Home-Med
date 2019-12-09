@@ -96,5 +96,17 @@
         <action
             android:id="@+id/action_profileFragment_to_login"
             app:destination="@id/login" />
+        <action
+            android:id="@+id/action_profileFragment_to_editUserInfo"
+            app:destination="@id/editUserInfo" />
+    </fragment>
+    <fragment
+        android:id="@+id/editUserInfo"
+        android:name="com.example.home_med.EditUserInfo"
+        android:label="fragment_edit_user_info"
+        tools:layout="@layout/fragment_edit_user_info" >
+        <action
+            android:id="@+id/action_editUserInfo_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
 </navigation>

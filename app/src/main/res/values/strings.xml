@@ -1,4 +1,3 @@
-
 <resources>
     <string name="app_name">Home-Med</string>
 
@@ -16,7 +15,6 @@
     <string name="profile_info">Profile info</string>
     <string name="logout">Logout</string>
     <string name="email">Email:</string>
-
     <string name="local_medication_title">Local Medication</string>
     <string name="name_header">Name</string>
     <string name="quantity_header">Quantity</string>
@@ -39,5 +37,14 @@
     <string name="local_button">Local Medications</string>
     <string name="delete_med_button">Delete Medication</string>
     <string name="view_button">View</string>
+    <string name="edit_info">Edit info</string>
+    <string name="first_name">First name:</string>
+    <string name="last_name">Last name:</string>
+    <string name="user_age">Age:</string>
+    <string name="edit_info_title">Edit user info</string>
+    <string name="edit_user_first_name">Write your first name </string>
+    <string name="edit_user_last_name">Write your last name </string>
+    <string name="edit_user_age">Write your age </string>
+    <string name="cancel">Cancel</string>
 
 </resources>
