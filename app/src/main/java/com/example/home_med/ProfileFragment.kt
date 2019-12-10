@@ -59,7 +59,7 @@ class ProfileFragment : Fragment() {
         val docRef = db.collection("UserData").document(currentUserId)
         docRef.get()
             .addOnSuccessListener { document ->
-                if (document != null) {
+                if (document.data != null) {
                     Log.d("MyTag", "DocumentSnapshot data: ${document.data}")
                     binding.userFirstName.text = document.data!!["first_name"].toString()
                     binding.userLastName.text = document.data!!["last_name"].toString()

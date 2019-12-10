@@ -40,7 +40,7 @@ class EditUserInfo : Fragment() {
         val docRef = db.collection("UserData").document(currentUserId)
         docRef.get()
             .addOnSuccessListener { document ->
-                if (document != null) {
+                if (document.data != null) {
                     Log.d("MyTag", "DocumentSnapshot data: ${document.data}")
                     binding.userFirstName.setText(document.data!!["first_name"].toString())
                     binding.userLastName.setText(document.data!!["last_name"].toString())
