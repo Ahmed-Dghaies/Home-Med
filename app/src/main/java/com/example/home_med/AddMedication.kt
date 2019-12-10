@@ -14,17 +14,29 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_add_medication.*
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import com.example.home_med.databinding.FragmentProfileBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 
 
 class AddMedication : Fragment() {
 
     private val db = FirebaseFirestore.getInstance()
+    lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding: FragmentAddMedicationBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_add_medication, container, false)
 
+        val binding1: FragmentProfileBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
+
         var medicationType = "Error"
         val medicationDays = arrayListOf("Days")
+
+        firebaseAuth = FirebaseAuth.getInstance()
+        var user: FirebaseUser? = firebaseAuth.getCurrentUser()
+        val currentUserId = user!!.uid
+
+        var userProfile = user.email.toString()
 
 
         binding.saveMedicationButton.setOnClickListener { v: View ->
@@ -73,7 +85,7 @@ class AddMedication : Fragment() {
                 }
 
                 val medicine = m_LocalMedication(vm_medicationNameTitle.text.toString(), vm_medicationQtyTitle.text.toString(),
-                    medicationType, vm_medicationExpDateTitle.text.toString(), true, medicationDays)
+                    medicationType, vm_medicationExpDateTitle.text.toString(), true, medicationDays, userProfile)
 
                 db.collection("Medication")
                     .document(vm_medicationNameTitle.text.toString())

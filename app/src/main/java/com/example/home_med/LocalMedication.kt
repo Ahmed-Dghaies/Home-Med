@@ -15,8 +15,11 @@ import com.example.home_med.models.m_LocalMedication
 import com.example.home_med.viewHolder.medicationViewHolder
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.*
 import kotlinx.android.synthetic.main.fragment_local_medication.*
+import kotlinx.android.synthetic.main.fragment_profile.*
 
 class LocalMedication : Fragment() {
 
@@ -27,6 +30,7 @@ class LocalMedication : Fragment() {
     private var firestoreListener: ListenerRegistration? = null
     private var medList = mutableListOf<m_LocalMedication>()
     private var medListInactive = mutableListOf<m_LocalMedication>()
+    lateinit var firebaseAuth: FirebaseAuth
 
     override fun onDestroy() {
         super.onDestroy()
@@ -52,7 +56,16 @@ class LocalMedication : Fragment() {
         val mLayoutManager = LinearLayoutManager(context)
         val mLayoutManagerInactive = LinearLayoutManager(context)
 
-        val query = firestoreDB!!.collection("Medication").whereEqualTo("m_medicationStatus", true)
+        firebaseAuth = FirebaseAuth.getInstance()
+        var user: FirebaseUser? = firebaseAuth.getCurrentUser()
+        val currentUserId = user!!.uid
+
+        var userEmail = user.email.toString()
+
+        val query = firestoreDB!!.collection("Medication").whereEqualTo("m_medicationStatus", false)
+
+        //var query = firestoreDB!!.collection("Medication").whereEqualTo("m_medicationStatus", true)
+        //query = query.whereEqualTo("m_userID", userEmail)
 
         val response = FirestoreRecyclerOptions.Builder<m_LocalMedication>()
             .setQuery(query, m_LocalMedication::class.java)
@@ -92,6 +105,7 @@ class LocalMedication : Fragment() {
         }
 
         val queryInactive = firestoreDB!!.collection("Medication").whereEqualTo("m_medicationStatus", false)
+        //queryInactive = queryInactive.whereEqualTo("m_userID", userEmail)
 
         val responseInactive = FirestoreRecyclerOptions.Builder<m_LocalMedication>()
             .setQuery(queryInactive, m_LocalMedication::class.java)
