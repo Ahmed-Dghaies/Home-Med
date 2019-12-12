@@ -3,6 +3,7 @@ package com.example.home_med
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -48,10 +49,12 @@ class Register : Fragment() {
         val password: String = binding.editTextPassword.text.toString()
         val passwordConfirmation = binding.editTextPasswordConfirmation.text.toString()
         when {
-            email.isEmpty() -> binding.editTextEmail.error = "this field can't be empty"
-            password.isEmpty() -> binding.editTextPassword.error = "this field can't be empty"
-            passwordConfirmation.isEmpty() -> binding.editTextPasswordConfirmation.error = "this field can't be empty"
-            password != passwordConfirmation -> binding.editTextPasswordConfirmation.error = "password confirmation is different from password"
+            email.isEmpty() -> binding.editTextEmail.error = "This field can't be empty"
+            password.isEmpty() -> binding.editTextPassword.error = "This field can't be empty"
+            password.length < 6 -> binding.editTextPassword.error = "Password length should not be less than 6"
+            !Patterns.EMAIL_ADDRESS.toRegex().matches(email) -> binding.editTextEmail.error = "This is not a valid email address"
+            passwordConfirmation.isEmpty() -> binding.editTextPasswordConfirmation.error = "This field can't be empty"
+            password != passwordConfirmation -> binding.editTextPasswordConfirmation.error = "Password confirmation is different from password"
             else -> firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(activity!!) { task ->
                     if (task.isSuccessful) {
