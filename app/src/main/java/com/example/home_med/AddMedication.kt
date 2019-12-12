@@ -18,7 +18,11 @@ import com.example.home_med.databinding.FragmentProfileBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
-
+/**
+ * Add Medication Fragment
+ * This fragment handles the adding of medication to the database
+ * Each medication contains a name, quantity, expiration date, and type
+ */
 class AddMedication : Fragment() {
 
     private val db = FirebaseFirestore.getInstance()

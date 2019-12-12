@@ -62,7 +62,7 @@ class LocalMedication : Fragment() {
 
         var userEmail = user.email.toString()
 
-        val query = firestoreDB!!.collection("Medication").whereEqualTo("m_medicationStatus", false)
+        val query = firestoreDB!!.collection("Medication").whereEqualTo("m_medicationStatus", true)
 
         //var query = firestoreDB!!.collection("Medication").whereEqualTo("m_medicationStatus", true)
         //query = query.whereEqualTo("m_userID", userEmail)
