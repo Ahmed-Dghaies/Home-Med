@@ -57,15 +57,12 @@ class LocalMedication : Fragment() {
         val mLayoutManagerInactive = LinearLayoutManager(context)
 
         firebaseAuth = FirebaseAuth.getInstance()
-        var user: FirebaseUser? = firebaseAuth.getCurrentUser()
+        val user: FirebaseUser? = firebaseAuth.getCurrentUser()
         val currentUserId = user!!.uid
 
-        var userEmail = user.email.toString()
+        val userEmail = user.email.toString()
 
-        val query = firestoreDB!!.collection("Medication").whereEqualTo("m_medicationStatus", false)
-
-        //var query = firestoreDB!!.collection("Medication").whereEqualTo("m_medicationStatus", true)
-        //query = query.whereEqualTo("m_userID", userEmail)
+        val query = firestoreDB!!.collection("Medication").whereEqualTo("m_userID", userEmail)
 
         val response = FirestoreRecyclerOptions.Builder<m_LocalMedication>()
             .setQuery(query, m_LocalMedication::class.java)
