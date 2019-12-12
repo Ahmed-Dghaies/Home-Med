@@ -1,3 +1,5 @@
+
+
 package com.example.home_med
 
 import androidx.test.espresso.Espresso
@@ -14,7 +16,7 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 
 class MedicationTesting {
-    @get:Rule]
+    @get:Rule
     var mainActivity: ActivityTestRule<MainActivity>
         = ActivityTestRule(MainActivity::class.java)
 
