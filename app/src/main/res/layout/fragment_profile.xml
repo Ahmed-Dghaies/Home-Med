@@ -5,6 +5,7 @@
     tools:context=".ProfileFragment">
 
     <LinearLayout
+        android:id="@+id/profile_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -21,20 +22,75 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/email_title"
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_8"
-                android:text="@string/email"
-                android:textColor="#020000"
-                android:textStyle="bold" />
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/user_email"
+                <TextView
+                    android:id="@+id/email_title"
+                    android:text="@string/email"
+                    style="@style/attributes" />
+
+                <TextView
+                    android:id="@+id/first_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_8"
+                    android:text="@string/first_name"
+                    android:textColor="#020000"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/last_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_8"
+                    android:text="@string/last_name"
+                    android:textColor="#020000"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/age"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_8"
+                    android:text="@string/user_age"
+                    android:textColor="#020000"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_8" />
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/user_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_8" />
+
+                <TextView
+                    android:id="@+id/user_first_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_8" />
+
+                <TextView
+                    android:id="@+id/user_last_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_8"
+                    android:baselineAligned="false" />
+
+                <TextView
+                    android:id="@+id/user_age"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_8" />
+            </LinearLayout>
+
         </LinearLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -42,12 +98,23 @@
             android:layout_height="match_parent">
 
             <Button
+                android:id="@+id/edit_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/edit_info"
+                app:layout_constraintBaseline_toBaselineOf="@+id/logout_button"
+                app:layout_constraintEnd_toStartOf="@+id/back_button"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/logout_button" />
+
+            <Button
                 android:id="@+id/logout_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_16"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
                 android:text="@string/logout"
-                app:layout_constraintEnd_toStartOf="@+id/back_button"
+                app:layout_constraintEnd_toStartOf="@id/edit_info"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -60,7 +127,7 @@
                 app:layout_constraintBaseline_toBaselineOf="@id/logout_button"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@id/logout_button" />
+                app:layout_constraintStart_toEndOf="@id/edit_info" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>

@@ -28,4 +28,12 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="attributes">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/margin_8</item>
+        <item name="android:textColor">#020000</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>
