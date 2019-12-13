@@ -71,6 +71,7 @@ class AddMedicationTestingEspresso {
 
     @Test
     fun addLiquidMedication() {
+        val rand = (0..1000).random()
         onView(withId(R.id.localMedicationsButton)).perform(click())
         onView(withId(R.id.addMedicationButton)).perform(click())
         onView(withId(R.id.vm_medicationExpDateTitle)).perform(replaceText("11/23/2019"))
@@ -79,10 +80,12 @@ class AddMedicationTestingEspresso {
         onView(withId(R.id.liquidButton)).perform(click())
         onView(withId(R.id.scrollAdd)).perform(ViewActions.swipeUp())
         onView(withId(R.id.saveMedicationButton)).perform(click())
+        onView(withId(R.id.localMedicationTityle)).check(matches(withText("Local Medication")))
     }
 
     @Test
     fun addLPillMedication() {
+        val rand = (0..1000).random()
         onView(withId(R.id.localMedicationsButton)).perform(click())
         onView(withId(R.id.addMedicationButton)).perform(click())
         onView(withId(R.id.vm_medicationExpDateTitle)).perform(replaceText("11/23/2019"))
@@ -91,10 +94,12 @@ class AddMedicationTestingEspresso {
         onView(withId(R.id.pillButton)).perform(click())
         onView(withId(R.id.scrollAdd)).perform(ViewActions.swipeUp())
         onView(withId(R.id.saveMedicationButton)).perform(click())
+        onView(withId(R.id.localMedicationTityle)).check(matches(withText("Local Medication")))
     }
 
     @Test
     fun addLPillMedicationWithDays() {
+        val rand = (0..1000).random()
         onView(withId(R.id.localMedicationsButton)).perform(click())
         onView(withId(R.id.addMedicationButton)).perform(click())
         onView(withId(R.id.vm_medicationExpDateTitle)).perform(replaceText("11/23/2019"))
@@ -106,5 +111,6 @@ class AddMedicationTestingEspresso {
         onView(withId(R.id.wednesdayCheck)).perform(click())
         onView(withId(R.id.scrollAdd)).perform(ViewActions.swipeUp())
         onView(withId(R.id.saveMedicationButton)).perform(click())
+        onView(withId(R.id.localMedicationTityle)).check(matches(withText("Local Medication")))
     }
 }

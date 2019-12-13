@@ -125,7 +125,10 @@ class AddMedication : Fragment() {
                     .document(vm_medicationNameTitle.text.toString())
                     .set(medicine)
 
-                saveImage(vm_medicationNameTitle.text.toString(), arguments?.get("bitmap") as Bitmap)
+                if(arguments?.get("bitmap") != null) {
+                    saveImage(vm_medicationNameTitle.text.toString(), arguments?.get("bitmap") as Bitmap)
+
+                }
 
                 val mgr = activity!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
                 mgr.hideSoftInputFromWindow(vm_medicationExpDateTitle.getWindowToken(), 0)
