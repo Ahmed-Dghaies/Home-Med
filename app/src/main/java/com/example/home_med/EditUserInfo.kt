@@ -21,12 +21,33 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 
-
+/**
+ * Edit User Information Fragment
+ * Fragment is used to alter the user information that is stored in the firebase database
+ * Information that can be altered includes User first name, last name, and age
+ *
+ * @constructor Creates the fragment bindings for the Edit User Information Fragment. Each user can adjust first name, last name, and age
+ *
+ * @property firebaseAuth Authentication for the current user information using the firebase database
+ * @property db Firebase database instance
+ */
 class EditUserInfo : Fragment() {
 
     lateinit var firebaseAuth: FirebaseAuth
     private val db = FirebaseFirestore.getInstance()
 
+    /**
+     * Fragment for editing the user information
+     * Authorized users are able to access their current information and alter the content
+     * Once the user has been authenticated, then the user may select to change their first name, last name, and age
+     * The data is taken from the inputs and then altered in the firebase database
+     *
+     * @param inflater Layout inflater used for navigation of application showing the fragment_edit_user_info
+     * @param container Container group used for the bindings
+     * @param savedInstanceState The saved instance state of the fragment including the container and inflater
+     *
+     * @return Returns the root binding
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

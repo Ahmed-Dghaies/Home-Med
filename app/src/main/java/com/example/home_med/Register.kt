@@ -19,13 +19,32 @@ import kotlinx.android.synthetic.main.fragment_register.*
 
 
 /**
- * A simple [Fragment] subclass.
+ * Register Fragment
+ * Allows the user to register with firebase database to create an account using an email and password
+ * Each user must have a unique email address
+ * Each user much have a duplicated password (crosschecked)
+ *
+ * @constructor Creates the fragment_register.xml view that is used to show the register fragment
+ *
+ * @property binding The binding of the information in the database
+ * @property firebaseAuth Authentication for each user that is registered and stored in the firebase database
  */
 class Register : Fragment() {
 
     private lateinit var firebaseAuth: FirebaseAuth
     lateinit var binding: FragmentRegisterBinding
 
+    /**
+     * Fragment for creating the view of the register fragment using fragment_register.xml
+     * Allows the user to register for a new account by giving an unused email address as well as a password
+     * The password must be confirmed before authentication occurs
+     *
+     * @param inflater Layout inflater used for navigation of application showing the fragment_add_medication
+     * @param container Container group used for the bindings
+     * @param savedInstanceState The saved instance state of the fragment including the container and inflater
+     *
+     * @return Returns the root binding
+     */
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_register, container, false)
@@ -44,6 +63,12 @@ class Register : Fragment() {
         return binding.root
     }
 
+    /**
+     * Registers the user with the firebase database
+     * Each user is registered using only a unique email address and password
+     * Each password must be confirmed by duplication
+     * Once the user is authenticated and registered, then they may access the rest of the application including the addition of more profile information
+     */
     private fun registerUser() {
         val email: String = binding.editTextEmail.text.toString()
         val password: String = binding.editTextPassword.text.toString()

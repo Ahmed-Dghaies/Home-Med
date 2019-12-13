@@ -21,13 +21,36 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.storage.FirebaseStorage
 import java.io.ByteArrayOutputStream
 
-
+/**
+ * Add Medication Fragment
+ * This fragment handles the adding of medication to the database
+ * Each medication contains a name, quantity, expiration date, and type
+ *
+ * @constructor Creates the fragment bindings for the Add Medication Fragment. Each medication uses name, quantity, expiration date, and type
+ *
+ * @property db Firebase database instance
+ * @property firebaseAuth Authentication for the current user information using the firebase database
+ */
 class AddMedication : Fragment() {
 
     private val db = FirebaseFirestore.getInstance()
     lateinit var firebaseAuth: FirebaseAuth
     private val storageReference = FirebaseStorage.getInstance().getReference()
 
+    /**
+     * Fragment for creating the view for the AddMedication Fragment which includes the following functionality:
+     * - Enter Name
+     * - Enter Quantity
+     * - Enter Expiration Date
+     * - Enter Medication Type
+     * - Days used (Active or Inactive)
+     *
+     * @param inflater Layout inflater used for navigation of application showing the fragment_add_medication
+     * @param container Container group used for the bindings
+     * @param savedInstanceState The saved instance state of the fragment including the container and inflater
+     *
+     * @return Returns the root binding
+     */
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding: FragmentAddMedicationBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_add_medication, container, false)
 
