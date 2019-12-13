@@ -202,7 +202,7 @@ class LocalMedication : Fragment() {
 
 
         binding.addMedicationButton.setOnClickListener { v: View ->
-            v.findNavController().navigate(LocalMedicationDirections.actionLocalMedicationToAddMedication())
+            v.findNavController().navigate(LocalMedicationDirections.actionLocalMedicationToAddMedication(null))
         }
         binding.homeButton.setOnClickListener { v: View ->
             v.findNavController().navigate(LocalMedicationDirections.actionLocalMedicationToHome2())

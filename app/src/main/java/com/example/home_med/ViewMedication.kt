@@ -1,6 +1,8 @@
 package com.example.home_med
 
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +11,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import com.example.home_med.databinding.FragmentViewMedicationBinding
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
 
 
 class ViewMedication : Fragment() {
@@ -20,6 +23,7 @@ class ViewMedication : Fragment() {
         val binding: FragmentViewMedicationBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_view_medication, container, false)
         val args = ViewMedicationArgs.fromBundle(arguments!!)
         val medicationDocRef = db.collection("Medication").document(args.medicationName)
+        var refToStorage = FirebaseStorage.getInstance().getReference()
 
         medicationDocRef.get()
             .addOnSuccessListener { documentSnapshot ->
@@ -28,6 +32,23 @@ class ViewMedication : Fragment() {
                 val medicationQty = documentSnapshot.getString("m_medicationQty")
                 val medicationType = documentSnapshot.getString("m_medicationType")
                 val medicationStatus = documentSnapshot.getBoolean("m_medicationStatus")!!
+
+                var imageRef = refToStorage.child("images/"+medicationName+".jpg")
+                try {
+                    imageRef.getBytes(Long.MAX_VALUE).addOnSuccessListener { task ->
+                        Log.d("size", task.size.toString())
+                        var bytes : ByteArray = ByteArray(task.size)
+                        for(i in 0..task.size-1) {
+                            bytes[i] = task[i]
+                        }
+                        var options = BitmapFactory.Options()
+                        var bitmap = BitmapFactory.decodeByteArray(bytes,0, bytes.size, options)
+                        binding.medicationImage.setImageBitmap(bitmap)
+                    }
+                    print("success")
+                } catch(e : Exception) {
+                    Log.d("Error", e.toString())
+                }
 
                 if (medicationStatus) {
                     binding.activateMedicationBtn.visibility = View.INVISIBLE

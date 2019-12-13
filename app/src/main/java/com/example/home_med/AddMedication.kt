@@ -1,6 +1,7 @@
 package com.example.home_med
 
 import android.content.Context
+import android.graphics.Bitmap
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -17,15 +18,22 @@ import android.widget.Toast
 import com.example.home_med.databinding.FragmentProfileBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.storage.FirebaseStorage
+import java.io.ByteArrayOutputStream
 
 
 class AddMedication : Fragment() {
 
     private val db = FirebaseFirestore.getInstance()
     lateinit var firebaseAuth: FirebaseAuth
+    private val storageReference = FirebaseStorage.getInstance().getReference()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding: FragmentAddMedicationBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_add_medication, container, false)
+
+        if(arguments?.get("bitmap") != null) {
+            binding.medicationImage.setImageBitmap(arguments?.get("bitmap") as Bitmap)
+        }
 
         val binding1: FragmentProfileBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
 
@@ -38,6 +46,9 @@ class AddMedication : Fragment() {
 
         var userProfile = user.email.toString()
 
+        binding.addImage.setOnClickListener { v : View ->
+            v.findNavController().navigate(AddMedicationDirections.actionAddMedicationToCameraPreview())
+        }
 
         binding.saveMedicationButton.setOnClickListener { v: View ->
 
@@ -91,6 +102,8 @@ class AddMedication : Fragment() {
                     .document(vm_medicationNameTitle.text.toString())
                     .set(medicine)
 
+                saveImage(vm_medicationNameTitle.text.toString(), arguments?.get("bitmap") as Bitmap)
+
                 val mgr = activity!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
                 mgr.hideSoftInputFromWindow(vm_medicationExpDateTitle.getWindowToken(), 0)
                 v.findNavController().navigate(AddMedicationDirections.actionAddMedicationToLocalMedication())
@@ -98,5 +111,19 @@ class AddMedication : Fragment() {
         }
         setHasOptionsMenu(true)
         return binding.root
+    }
+
+    private fun saveImage(fileName: String, bitmap : Bitmap) {
+        var imageRef = storageReference.child("images/"+fileName+".jpg");
+        var baos = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 80, baos)
+        bitmap.recycle()
+        var  bytes = baos.toByteArray()
+        try {
+            imageRef.putBytes(bytes)
+        } catch (e : Exception) {
+            print("Oppsie Poopsie")
+            print(e)
+        }
     }
 }

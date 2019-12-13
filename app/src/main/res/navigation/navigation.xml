@@ -71,6 +71,13 @@
             android:id="@+id/action_addMedication_to_localMedication"
             app:destination="@id/localMedication"
             app:popUpTo="@+id/localMedication" />
+        <action
+            android:id="@+id/action_addMedication_to_cameraPreview"
+            app:destination="@id/cameraPreview" />
+        <argument
+            android:name="bitmap"
+            app:argType="android.graphics.Bitmap"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/viewMedication"
@@ -108,5 +115,14 @@
         <action
             android:id="@+id/action_editUserInfo_to_profileFragment"
             app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cameraPreview"
+        android:name="com.example.home_med.CameraPreview"
+        android:label="fragment_camera_preview"
+        tools:layout="@layout/fragment_camera_preview" >
+        <action
+            android:id="@+id/action_cameraPreview_to_addMedication"
+            app:destination="@id/addMedication" />
     </fragment>
 </navigation>
