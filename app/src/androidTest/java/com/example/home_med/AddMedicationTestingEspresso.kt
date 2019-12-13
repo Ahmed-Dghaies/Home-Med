@@ -21,7 +21,6 @@ class AddMedicationTestingEspresso {
     var mainActivity: ActivityTestRule<MainActivity>
             = ActivityTestRule(MainActivity::class.java)
 
-
     @Test
     fun checkInputValidationMedName() {
         onView(withId(R.id.localMedicationsButton)).perform(click())
@@ -66,6 +65,45 @@ class AddMedicationTestingEspresso {
         onView(withId(R.id.vm_medicationExpDateTitle)).perform(replaceText("11/23/2019"))
         onView(withId(R.id.vm_medicationNameTitle)).perform(replaceText("Test"))
         onView(withId(R.id.vm_medicationQtyTitle)).perform(replaceText("5"))
+        onView(withId(R.id.scrollAdd)).perform(ViewActions.swipeUp())
+        onView(withId(R.id.saveMedicationButton)).perform(click())
+    }
+
+    @Test
+    fun addLiquidMedication() {
+        onView(withId(R.id.localMedicationsButton)).perform(click())
+        onView(withId(R.id.addMedicationButton)).perform(click())
+        onView(withId(R.id.vm_medicationExpDateTitle)).perform(replaceText("11/23/2019"))
+        onView(withId(R.id.vm_medicationNameTitle)).perform(replaceText("Test"))
+        onView(withId(R.id.vm_medicationQtyTitle)).perform(replaceText("5"))
+        onView(withId(R.id.liquidButton)).perform(click())
+        onView(withId(R.id.scrollAdd)).perform(ViewActions.swipeUp())
+        onView(withId(R.id.saveMedicationButton)).perform(click())
+    }
+
+    @Test
+    fun addLPillMedication() {
+        onView(withId(R.id.localMedicationsButton)).perform(click())
+        onView(withId(R.id.addMedicationButton)).perform(click())
+        onView(withId(R.id.vm_medicationExpDateTitle)).perform(replaceText("11/23/2019"))
+        onView(withId(R.id.vm_medicationNameTitle)).perform(replaceText("Test"))
+        onView(withId(R.id.vm_medicationQtyTitle)).perform(replaceText("5"))
+        onView(withId(R.id.pillButton)).perform(click())
+        onView(withId(R.id.scrollAdd)).perform(ViewActions.swipeUp())
+        onView(withId(R.id.saveMedicationButton)).perform(click())
+    }
+
+    @Test
+    fun addLPillMedicationWithDays() {
+        onView(withId(R.id.localMedicationsButton)).perform(click())
+        onView(withId(R.id.addMedicationButton)).perform(click())
+        onView(withId(R.id.vm_medicationExpDateTitle)).perform(replaceText("11/23/2019"))
+        onView(withId(R.id.vm_medicationNameTitle)).perform(replaceText("Test"))
+        onView(withId(R.id.vm_medicationQtyTitle)).perform(replaceText("5"))
+        onView(withId(R.id.pillButton)).perform(click())
+        onView(withId(R.id.mondayCheck)).perform(click())
+        onView(withId(R.id.tuesdayCheck)).perform(click())
+        onView(withId(R.id.wednesdayCheck)).perform(click())
         onView(withId(R.id.scrollAdd)).perform(ViewActions.swipeUp())
         onView(withId(R.id.saveMedicationButton)).perform(click())
     }
