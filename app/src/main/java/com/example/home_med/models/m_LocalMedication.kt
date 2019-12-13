@@ -2,6 +2,20 @@ package com.example.home_med.models
 
 import java.util.HashMap
 
+/**
+ * Local Medication Database Class
+ * Stores the variables from the database into separated variables for easy access
+ *
+ * @constructor Empty constructor with data slots for the local medication information
+ *
+ * @property m_medicationName Name of the medication
+ * @property m_medicationQty Medication quantity
+ * @property m_medicationType Type of the medication
+ * @property m_medicationExpDate Medication expiration date
+ * @property m_userID User identification number
+ * @property m_medicationStatus Medication status of active or inactive
+ * @property m_medicationDays Days medication is used / active
+ */
 class m_LocalMedication {
     var m_medicationName: String? = null
     var m_medicationQty: String? = null
@@ -13,6 +27,17 @@ class m_LocalMedication {
 
     constructor() {}
 
+    /**
+     * Empty constructor with data slots for the local medication information
+     *
+     * @param medicationName Name of the medication as a String
+     * @param medicationQty Quantity of the medication as a String
+     * @param medicationType Type of the medication as a String
+     * @param medicationExpDat Expiration data of the medication as a String
+     * @param medicationStatus Whether the medication is active or inactive
+     * @param medicationDays List of days that the medication is active
+     * @param userID ID of the user as a String
+     */
     constructor(medicationName: String, medicationQty: String, medicationType: String, medicationExpDat : String, medicationStatus : Boolean, medicationDays : ArrayList<String>, userID : String) {
         this.m_medicationName = medicationName
         this.m_medicationType = medicationType
@@ -23,6 +48,11 @@ class m_LocalMedication {
         this.m_userID = userID
     }
 
+    /**
+     * Maps the data given from the constructor to the medication name, type, qty, expDate, status, days, and user ID
+     *
+     * @return Returns the result of the mapping
+     */
     fun toMap(): Map<String, Any> {
 
         val result = HashMap<String, Any>()
