@@ -12,6 +12,7 @@ import androidx.navigation.findNavController
 import com.example.home_med.databinding.FragmentViewMedicationBinding
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
+import kotlinx.android.synthetic.main.fragment_add_medication.*
 
 /**
  * View Medication Fragment
@@ -75,7 +76,7 @@ class ViewMedication : Fragment() {
                     }
                 }
 
-                medicationDays = documentSnapshot.get("m_medicationDays") as ArrayList<String>
+                //medicationDays = documentSnapshot.get("m_medicationDays") as ArrayList<String>
 
                 var imageRef = refToStorage.child("images/"+medicationName+".jpg")
                 try {
@@ -127,8 +128,33 @@ class ViewMedication : Fragment() {
             v.findNavController().navigate(ViewMedicationDirections.actionViewMedicationToLocalMedication())
         }
         binding.updateMedicationBtn.setOnClickListener { v: View ->
+            val medicationDays = arrayListOf("Days")
             medicationDocRef.update("m_medicationExpDate", binding.vmMedicationExpDateTitle.text.toString())
             medicationDocRef.update("m_medicationQty", binding.vmMedicationQtyTitle.text.toString())
+
+            if (sundayCheck.isChecked) {
+                medicationDays.add(sundayCheck.text.toString())
+            }
+            if (mondayCheck.isChecked) {
+                medicationDays.add(mondayCheck.text.toString())
+            }
+            if (tuesdayCheck.isChecked) {
+                medicationDays.add(tuesdayCheck.text.toString())
+            }
+            if (wednesdayCheck.isChecked) {
+                medicationDays.add(wednesdayCheck.text.toString())
+            }
+            if (thursdayCheck.isChecked) {
+                medicationDays.add(thursdayCheck.text.toString())
+            }
+            if (fridayCheck.isChecked) {
+                medicationDays.add(fridayCheck.text.toString())
+            }
+            if (saturdayCheck.isChecked) {
+                medicationDays.add(saturdayCheck.text.toString())
+            }
+
+            medicationDocRef.update("m_medicationDays", medicationDays)
 
             if (binding.pillButton.isChecked) {
                 medicationDocRef.update("m_medicationType", "Pill")

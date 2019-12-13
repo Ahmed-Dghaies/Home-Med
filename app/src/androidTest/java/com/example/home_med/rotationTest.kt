@@ -3,10 +3,12 @@ package com.example.home_med
 import android.content.Context
 import android.content.pm.ActivityInfo
 import android.content.res.Configuration
+import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.replaceText
+import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.ActivityTestRule
@@ -28,19 +30,47 @@ class rotationTest {
     var activityRule: ActivityTestRule<MainActivity> = ActivityTestRule(MainActivity::class.java)
 
     @Test
-    fun ativityMainRotationTest() {
-        onView(withId(R.id.editTextEmail)).perform(click())
-        onView(withId(R.id.editTextPassword)).perform(click())
-        onView(withId(R.id.loginButton)).perform(click())
+    fun activityMainRotationTest() {
+        rotateScreenLandscape()
+        rotateScreenPortrait()
     }
 
     @Test
-    fun homeFragRotationTest() {
-        onView(withId(R.id.editTextEmail)).perform(click())
-        onView(withId(R.id.editTextEmail)).perform(replaceText("test@my.com"))
-        onView(withId(R.id.editTextPassword)).perform(click())
-        onView(withId(R.id.editTextPassword)).perform(replaceText("123xyz"))
-        onView(withId(R.id.loginButton)).perform(click())
+    fun localMedicationRotationTest() {
+        onView(withId(R.id.localMedicationsButton)).perform(click())
+        rotateScreenLandscape()
+        rotateScreenPortrait()
+    }
+
+    @Test
+    fun addMedicationRotationTest() {
+        onView(withId(R.id.localMedicationsButton)).perform(click())
+        onView(withId(R.id.addMedicationButton)).perform(click())
+//        rotateScreenLandscape()
+//        rotateScreenPortrait()
+    }
+
+    @Test
+    fun viewMedicationRotationTest() {
+        onView(withId(R.id.localMedicationsButton)).perform(click())
+        onView(withId(R.id.recyclerview)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+        //rotateScreenLandscape()
+        //rotateScreenPortrait()
+    }
+
+    @Test
+    fun userInfoRotationTest() {
+        onView(withId(R.id.profile_button)).perform(click())
+//        rotateScreenLandscape()
+//        rotateScreenPortrait()
+    }
+
+    @Test
+    fun editUserInfoRotationTest() {
+        onView(withId(R.id.profile_button)).perform(click())
+        onView(withId(R.id.edit_info)).perform(click())
+        rotateScreenLandscape()
+        rotateScreenPortrait()
     }
 
     private fun rotateScreenPortrait() {

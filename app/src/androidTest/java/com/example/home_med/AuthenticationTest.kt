@@ -85,6 +85,6 @@ class AuthenticationTest {
         register(user_email,user_password)
         logout()
         login(user_email,user_password)
-        logout()
+        //logout()
     }
 }
