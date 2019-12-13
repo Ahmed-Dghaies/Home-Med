@@ -10,11 +10,27 @@ import androidx.navigation.findNavController
 import com.example.home_med.databinding.FragmentViewMedicationBinding
 import com.google.firebase.firestore.FirebaseFirestore
 
-
+/**
+ * View Medication Fragment
+ * Retrieves the information from the database for all medication information including name, quantity, days used, expriation, active/inactive, type
+ *
+ * @constructor Creates the view for each medication that contains the medication name, quantity, type
+ *
+ * @property db The firebase database that is used for profile information
+ */
 class ViewMedication : Fragment() {
 
     private val db = FirebaseFirestore.getInstance()
 
+    /**
+     * Fragment view for the fragment_view_medication.xml that is inserted within the local_medication fragment
+     *
+     * @param inflater Layout inflater used for navigation of application showing the fragment_view_medication
+     * @param container Container group used for the bindings
+     * @param savedInstanceState The saved instance state of the fragment including the container and inflater
+     *
+     * @return Returns the root binding
+     */
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val binding: FragmentViewMedicationBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_view_medication, container, false)

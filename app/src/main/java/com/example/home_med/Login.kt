@@ -15,11 +15,32 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.fragment_login.*
 
+/**
+ * Login Fragment
+ * Allows the user to enter their email and password (Once already created) to log into their account and continue to the rest of the application
+ * Each user must have already registered their email address
+ * Each user much have already created a password associated with their email address
+ *
+ * @constructor Creates the fragment for the fragment_login.xml file
+ *
+ * @property binding The binding used for the firebase database
+ * @property firebaseAuth Authentication for the user to be able to log into the application
+ */
 class Login : Fragment() {
 
     lateinit var binding: FragmentLoginBinding
     private lateinit var firebaseAuth: FirebaseAuth
 
+    /**
+     * Creates the fragment for the fragment_login.xml file
+     * Once the fragment has been started, the user is allowed to log into the fragment
+     *
+     * @param inflater Layout inflater used for navigation of application showing the fragment_login
+     * @param container Container group used for the bindings
+     * @param savedInstanceState The saved instance state of the fragment including the container and inflater
+     *
+     * @return Returns the root binding
+     */
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
@@ -43,6 +64,10 @@ class Login : Fragment() {
         return binding.root
     }
 
+    /**
+     * Logs the user into the correct account when given an appropriate email address and password that have already been registered
+     * Once the user logs into the account they can access the rest of the local medication and profile functionality
+     */
     private fun loginUser() {
         val email: String = binding.editTextEmail.text.toString()
         val password: String = binding.editTextPassword.text.toString()

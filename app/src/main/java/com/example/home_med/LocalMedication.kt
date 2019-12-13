@@ -21,6 +21,24 @@ import com.google.firebase.firestore.*
 import kotlinx.android.synthetic.main.fragment_local_medication.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 
+/**
+ * Local medication Fragment
+ * Local medication fragment contains the database information for each local medication that is stored in the firebase database
+ * Each medication is either marked as active or inactive and contains the following:
+ * - Medication Name
+ * - Quantity
+ * - Medication type
+ *
+ * @constructor Creates the base fragment for the local medication fragment (Contains the active and inactive medication tables from the firebase database)
+ *
+ * @property medAdapter Medication adapter that uses Firestore for active medications
+ * @property medAdapterInactive Medication adapter that uses Firestore for inactive medications
+ * @property firestoreDB The firestore database the contains the local medications
+ * @property firestoreListener Listener for the database using firestore
+ * @property medList List of medication to be used in the tables of the local medication fragment
+ * @property medList List of inactive medication to be used in the tables of the local medication fragment
+ * @property firebaseAuth Authentication for the firebase database user
+ */
 class LocalMedication : Fragment() {
 
     private var medAdapter: FirestoreRecyclerAdapter<m_LocalMedication, medicationViewHolder>? = null
@@ -32,16 +50,28 @@ class LocalMedication : Fragment() {
     private var medListInactive = mutableListOf<m_LocalMedication>()
     lateinit var firebaseAuth: FirebaseAuth
 
+    /**
+     * Destroys the current firebase listener from parent
+     * Removes the listener
+     */
     override fun onDestroy() {
         super.onDestroy()
         firestoreListener!!.remove()
     }
+
+    /**
+     * Starts the current firebase listener on start from the parent
+     */
     override fun onStart() {
         super.onStart()
         medAdapterInactive!!.startListening()
         medAdapter!!.startListening()
     }
 
+    /**
+     * Stops the current firebase listener on stop from the parent
+     * Prevents the listener from continuing
+     */
     override fun onStop() {
         super.onStop()
         medAdapterInactive!!.stopListening()
@@ -49,6 +79,16 @@ class LocalMedication : Fragment() {
     }
 
 
+    /**
+     * Fragment for creating the fragment_local_medication.xml file
+     * This creates the fragment for the local medications containing the tables for active and inactive medications (all contained in local medications)
+     *
+     * @param inflater The current inflater for the local medications fragment
+     * @param container The current container which holds the view for the local medication fragment
+     * @param savedInstanceState The saved instance state for local medications including the inflater and container
+     *
+     * @return Returns the root binding
+     */
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding: FragmentLocalMedicationBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_local_medication, container, false)
         firestoreDB = FirebaseFirestore.getInstance()
@@ -72,6 +112,15 @@ class LocalMedication : Fragment() {
             .build()
 
         medAdapter = object : FirestoreRecyclerAdapter<m_LocalMedication, medicationViewHolder>(response) {
+
+            /**
+             * View Holder Binding
+             * Contains the listener for each binding object that is contained within the firebase database
+             *
+             * @param holder The holder for the medication
+             * @param position Position in the list that is being held
+             * @param model The model of the object
+             */
             override fun onBindViewHolder(holder: medicationViewHolder, position: Int, model: m_LocalMedication) {
                 val note = medList[position]
 
@@ -92,6 +141,14 @@ class LocalMedication : Fragment() {
                 }
             }
 
+            /**
+             * Creates the view holder for the firebase database
+             *
+             * @param parent Parent object that the view holder is being bound to
+             * @param viewType The type of view that is being selected from the parent
+             *
+             * @return Returns the medication view holder with the given view
+             */
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): medicationViewHolder {
                 val view = LayoutInflater.from(parent.context)
                     .inflate(R.layout.recyclerview_item, parent, false)
@@ -99,6 +156,11 @@ class LocalMedication : Fragment() {
                 return medicationViewHolder(view)
             }
 
+            /**
+             * Login Error once the firebase login authentication has failed
+             *
+             * @param e Error message that is logged on failure
+             */
             override fun onError(e: FirebaseFirestoreException) {
                 Log.e("error", e!!.message)
             }
@@ -112,6 +174,14 @@ class LocalMedication : Fragment() {
             .build()
 
         medAdapterInactive = object : FirestoreRecyclerAdapter<m_LocalMedication, medicationViewHolder>(responseInactive) {
+
+            /**
+             * View Holder binding function to set the listener on binding for the view
+             *
+             * @param holder The holder for the medication
+             * @param position Position in the list that is being held
+             * @param model The model of the object
+             */
             override fun onBindViewHolder(holder: medicationViewHolder, position: Int, model: m_LocalMedication) {
                 val note = medListInactive[position]
 
@@ -132,6 +202,14 @@ class LocalMedication : Fragment() {
                 }
             }
 
+            /**
+             * Creates the view holder for the firebase database
+             *
+             * @param parent Parent object that the view holder is being bound to
+             * @param viewType The type of view that is being selected from the parent
+             *
+             * @return Returns the medication view holder with the given view
+             */
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): medicationViewHolder {
                 val view = LayoutInflater.from(parent.context)
                     .inflate(R.layout.recyclerview_item, parent, false)
@@ -139,6 +217,11 @@ class LocalMedication : Fragment() {
                 return medicationViewHolder(view)
             }
 
+            /**
+             * Login Error once the firebase login authentication has failed
+             *
+             * @param e Error message that is logged on failure
+             */
             override fun onError(e: FirebaseFirestoreException) {
                 Log.e("error", e!!.message)
             }

@@ -23,13 +23,36 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 
-
+/**
+ * Profile information fragment
+ * Contains all of the entered information given for a user
+ * Each user, once information has been input and validated, has a profile page which contains all of their person user information
+ *
+ * @constructor Creates the fragment_profile.xml view that is used to show the profile fragment
+ *
+ * @property binding The binding of the information in the database
+ * @property firebaseAuth Authentication for each user that is registered and stored in the firebase database
+ * @property db The firebase database that is used for profile information
+ */
 class ProfileFragment : Fragment() {
 
     lateinit var binding: FragmentProfileBinding
     lateinit var firebaseAuth: FirebaseAuth
     private val db = FirebaseFirestore.getInstance()
 
+    /**
+     * Fragment for creating the profile view to show the user the following
+     * - Email address
+     * - Fire name
+     * - Last name
+     * - Age
+     *
+     * @param inflater Layout inflater used for navigation of application showing the fragment_profile
+     * @param container Container group used for the bindings
+     * @param savedInstanceState The saved instance state of the fragment including the container and inflater
+     *
+     * @return Returns the root binding
+     */
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
