@@ -63,7 +63,7 @@ class LocalMedication : Fragment() {
         val userEmail = user.email.toString()
 
         //val query = firestoreDB!!.collection("Medication").whereEqualTo("m_userID", userEmail)
-        val query = firestoreDB!!.collection("Medication").whereEqualTo("m_medicationStatus", true)
+        val query = firestoreDB!!.collection("Medication").whereEqualTo("m_userID", userEmail)
 
         val response = FirestoreRecyclerOptions.Builder<m_LocalMedication>()
             .setQuery(query, m_LocalMedication::class.java)

@@ -33,6 +33,34 @@ class ViewMedication : Fragment() {
                 val medicationType = documentSnapshot.getString("m_medicationType")
                 val medicationStatus = documentSnapshot.getBoolean("m_medicationStatus")!!
 
+                var days = documentSnapshot.get("m_medicationDays") as ArrayList<String>
+
+                for(i in days) {
+                    if(i == "Monday") {
+                        binding.mondayCheck.isChecked = true
+                    }
+                    if(i == "Tuesday") {
+                        binding.tuesdayCheck.isChecked = true
+                    }
+                    if(i == "Wednesday") {
+                        binding.wednesdayCheck.isChecked = true
+                    }
+                    if(i == "Thursday") {
+                        binding.thursdayCheck.isChecked = true
+                    }
+                    if(i == "Friday") {
+                        binding.fridayCheck.isChecked = true
+                    }
+                    if(i == "Saturday") {
+                        binding.saturdayCheck.isChecked = true
+                    }
+                    if(i == "Sunday") {
+                        binding.sundayCheck.isChecked = true
+                    }
+                }
+
+                medicationDays = documentSnapshot.get("m_medicationDays") as ArrayList<String>
+
                 var imageRef = refToStorage.child("images/"+medicationName+".jpg")
                 try {
                     imageRef.getBytes(Long.MAX_VALUE).addOnSuccessListener { task ->
@@ -97,9 +125,9 @@ class ViewMedication : Fragment() {
         }
         binding.deactivateMedicationBtn.setOnClickListener { v: View ->
             medicationDocRef.update("m_medicationStatus", false)
-            v.findNavController().navigate(ViewMedicationDirections.actionViewMedicationToLocalMedication())
+            v.findNavController()
+                .navigate(ViewMedicationDirections.actionViewMedicationToLocalMedication())
         }
-
         setHasOptionsMenu(true)
         return binding.root
     }

@@ -21,13 +21,11 @@ class CameraPreview : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         var intent : Intent =  Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         activity?.startActivityFromFragment(this, intent, 1)
         return inflater.inflate(R.layout.fragment_camera_preview, container, false)
     }
     override fun onActivityResult(requestCode : Int, resultCode : Int, data : Intent?) {
-        // super.onActivityResult(requestCode, resultCode, data);
         try {
             if (requestCode == 1) {
                 if (resultCode == Activity.RESULT_OK && data != null) {
